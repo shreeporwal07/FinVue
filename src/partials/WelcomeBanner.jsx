@@ -2,7 +2,7 @@ import React from "react";
 
 function WelcomeBanner() {
   return (
-    <div className="relative bg-gradient-to-r from-[#434974] to-[#242949] p-4 sm:p-6 rounded-lg overflow-hidden mb-8 h-80 w-3/4">
+    <div className="relative bg-gradient-to-r from-[#434974] to-[#242949] p-4 sm:p-6 rounded-lg overflow-hidden mb-8 h-80">
       {/* Background illustration */}
       <div
         className="absolute right-0 top-0 -mt-4 mr-16 pointer-events-none hidden xl:block"
@@ -67,7 +67,7 @@ function WelcomeBanner() {
       </div>
 
       {/* Content */}
-      <div className="relative space-y-8 w-1/2">
+      <div className="relative space-y-10 w-3/4">
         <h1 className="font-kalam text-2xl md:text-5xl text-slate-100 font-bold mb-8">
           Hello, User! 
         </h1>
@@ -75,7 +75,7 @@ function WelcomeBanner() {
           Get Professional Financial education and practices
         </p>
         <button className="btn bg-[#8C52FF] hover:bg-[#9461F8] text-black hover:text-white rounded-3xl border-white">
-          <span className="hidden xs:block p-1 text-xl">Start Learning</span>
+          <span className="xs:block p-1 text-xl">Start Learning</span>
         </button>
       </div>
     </div>

@@ -5,6 +5,7 @@ import WelcomeBanner from '../partials/WelcomeBanner';
 import DashboardCard05 from '../partials/dashboard/DashboardCard05';
 import DashboardCard12 from '../partials/dashboard/DashboardCard12';
 import DashboardCard13 from '../partials/dashboard/DashboardCard13';
+import DashboardCard01 from '../partials/dashboard/DashboardCard01';
 function Dashboard() {
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -24,8 +25,9 @@ function Dashboard() {
             </div>
             <div className="grid grid-cols-12 gap-6">
             <DashboardCard05 />
+            <DashboardCard01/>
             <DashboardCard12 />
-              <DashboardCard13 />
+            <DashboardCard13 />
               </div>
             </div>
 </main>

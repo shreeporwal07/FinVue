@@ -1,11 +1,11 @@
 import React from "react";
-
+import bgimg from "../images/welcome.png";
 function WelcomeBanner() {
   return (
-    <div className="relative bg-gradient-to-r from-[#434974] to-[#242949] p-4 sm:p-6 rounded-lg overflow-hidden mb-8 h-80">
+    <div className="relative bg-gradient-to-r from-[#434974] to-[#242949] p-4 sm:p-6 rounded-lg mb-8 h-80">
       {/* Background illustration */}
       <div
-        className="absolute right-0 top-0 -mt-4 mr-16 pointer-events-none hidden xl:block"
+        className="absolute right-0 top-0 -mt-4 mr-16 pointer-events-none xl:block"
         aria-hidden="true"
       >
         <svg width="319" height="198" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -78,6 +78,11 @@ function WelcomeBanner() {
           <span className="xs:block p-1 text-xl">Start Learning</span>
         </button>
       </div>
+      <img
+        src={bgimg}
+        alt="Background Image"
+        className="absolute bottom-0 right-20 h-80 w-80 object-cover pointer-events-none hidden xl:block"
+      />
     </div>
   );
 }

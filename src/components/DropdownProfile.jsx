@@ -53,9 +53,10 @@ function DropdownProfile({ align }) {
           alt="User"
         />
         <div className="flex items-center justify-center">
-          <span className="truncate ml-4 text-2xl font-medium font-kalam text-slate-300 group-hover:text-slate-200 h-10 mt-2">
+          <span className="hidden sm:inline-block truncate ml-4 text-2xl font-medium font-kalam text-slate-300 group-hover:text-slate-200 h-10 mt-2">
             Leena Shree
           </span>
+
           <svg
             className="w-3 h-3 ml-1 fill-current text-slate-400"
             viewBox="0 0 12 12"

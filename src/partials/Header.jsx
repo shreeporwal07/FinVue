@@ -31,6 +31,7 @@ function Header({ sidebarOpen, setSidebarOpen }) {
                 <rect x="4" y="17" width="16" height="2" />
               </svg>
             </button>
+            <h1 className="h-10 w-10 text-3xl font-inter">FinVue</h1>
           </div>
             {/* <hr className="w-px h-6 bg-slate-200 dark:bg-slate-700 border-none" /> */}
             <UserMenu align="right" />

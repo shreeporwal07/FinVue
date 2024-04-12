@@ -1,5 +1,7 @@
 import React from "react";
 import bgimg from "../images/welcome.png";
+import {Link } from "react-router-dom";
+
 function WelcomeBanner() {
   return (
     <div className="relative bg-gradient-to-r from-[#434974] to-[#242949] p-4 sm:p-6 rounded-lg mb-8 h-80">
@@ -69,14 +71,18 @@ function WelcomeBanner() {
       {/* Content */}
       <div className="relative space-y-10 w-3/4">
         <h1 className="font-kalam text-2xl md:text-5xl text-slate-100 font-bold mb-8">
-          Hello, User! 
+          Hello, User!
         </h1>
         <p className="text-indigo-200 text-2xl mb-10">
           Get Professional Financial education and practices
         </p>
+
         <button className="btn bg-[#8C52FF] hover:bg-[#9461F8] text-black hover:text-white rounded-3xl border-white">
-          <span className="xs:block p-1 text-xl">Start Learning</span>
+          <Link to="/startlearning">
+            <span className="xs:block p-1 text-xl">Start Learning</span>
+          </Link>
         </button>
+
       </div>
       <img
         src={bgimg}

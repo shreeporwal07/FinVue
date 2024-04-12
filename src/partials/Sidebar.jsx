@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-
+import { useAuth0 } from "@auth0/auth0-react";
 import SidebarLinkGroup from "./SidebarLinkGroup";
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const location = useLocation();
   const { pathname } = location;
-
+  const { user,loginWithRedirect ,logout} = useAuth0();
   const trigger = useRef(null);
   const sidebar = useRef(null);
 
@@ -50,6 +50,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
     }
   }, [sidebarExpanded]);
 
+  console.log("user",user);
   return (
     <div>
       {/* Sidebar backdrop (mobile only) */}
@@ -154,7 +155,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               >
                 <NavLink
                   end
-                  to="/messages"
+                  to="/"
                   className={`block text-slate-200 truncate transition duration-150 ${
                     pathname.includes("messages")
                       ? "hover:text-slate-200"
@@ -196,7 +197,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               >
                 <NavLink
                   end
-                  to="/messages"
+                  to="/module"
                   className={`block text-slate-200 truncate transition duration-150 ${
                     pathname.includes("messages")
                       ? "hover:text-slate-200"
@@ -297,7 +298,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               >
                 <NavLink
                   end
-                  to="/messages"
+                  to="/blog"
                   className={`block text-slate-200 truncate transition duration-150 ${
                     pathname.includes("messages")
                       ? "hover:text-slate-200"
@@ -516,9 +517,10 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                               end
                               to="/signin"
                               className="block text-slate-400 hover:text-slate-200 transition duration-150 truncate"
+                              onClick={() => loginWithRedirect()}
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Sign in
+                                Sign up
                               </span>
                             </NavLink>
                           </li>
@@ -527,9 +529,10 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                               end
                               to="/signup"
                               className="block text-slate-400 hover:text-slate-200 transition duration-150 truncate"
+                              onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                                Sign up
+                                Logout
                               </span>
                             </NavLink>
                           </li>

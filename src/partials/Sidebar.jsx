@@ -248,7 +248,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               >
                 <NavLink
                   end
-                  to="/messages"
+                  to="/portifolio"
                   className={`block text-slate-200 truncate transition duration-150 ${
                     pathname.includes("messages")
                       ? "hover:text-slate-200"
@@ -346,7 +346,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               >
                 <NavLink
                   end
-                  to="/calendar"
+                  to="/calculator"
                   className={`block text-slate-200 truncate transition duration-150 ${
                     pathname.includes("calendar")
                       ? "hover:text-slate-200"
@@ -413,7 +413,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               >
                 <NavLink
                   end
-                  to="/campaigns"
+                  to="/planner"
                   className={`block text-slate-200 truncate transition duration-150 ${
                     pathname.includes("campaigns")
                       ? "hover:text-slate-200"

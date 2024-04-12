@@ -18,13 +18,13 @@ function Planner() {
                 <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                 <div className="m-10 space-y-4">
                     <span className="font-kalam sm:text-2xl md:text-5xl text-slate-100 font-bold">Financial Planner</span>
+                    <ExpenseTracking />
                     <div className="flex flex-col md:flex-row gap-6">
                     <BudgetingTool />
                     <GoalSetting />
                     <DebtPayoffPlanner/>
                     <InvestmentTracker/>
                     </div>
-                    <ExpenseTracking />
                 </div>
             </div>
         </div>

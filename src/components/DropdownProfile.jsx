@@ -1,16 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Transition from "../utils/Transition";
-
+import { useAuth0 } from "@auth0/auth0-react";
 import UserAvatar from "../images/user-avatar-32.png";
 
 function DropdownProfile({ align }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  const { user } = useAuth0();
   const trigger = useRef(null);
   const dropdown = useRef(null);
 
   // close on click outside
+  console.log(user);
   useEffect(() => {
     const clickHandler = ({ target }) => {
       if (!dropdown.current) return;
@@ -54,7 +55,7 @@ function DropdownProfile({ align }) {
         />
         <div className="flex items-center justify-center">
           <span className="hidden sm:inline-block truncate ml-4 text-2xl font-medium font-kalam text-slate-300 group-hover:text-slate-200 h-10 mt-2">
-            Leena Shree
+           Leena Shree
           </span>
 
           <svg

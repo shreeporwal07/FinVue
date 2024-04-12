@@ -12,6 +12,7 @@ import Blogs from './pages/Blogs';
 import Learning from './pages/Learning';
 import Module1Q from './Question/Module1Q';
 import Calculator from './pages/Calculator';
+import Planner from './pages/Planner';
 
 function App() {
   const location = useLocation();
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/startlearning" element={<Learning/>}/>
         <Route exact path="/mod1q" element={<Module1Q/>}/>
         <Route exact path="/calculator" element={<Calculator/>}/>
+        <Route exact path="/planner" element={<Planner/>}/>
       </Routes>
     </>
   );

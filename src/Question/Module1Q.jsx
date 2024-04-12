@@ -62,7 +62,7 @@ const Learning = () => {
     };
 
     const handlePageLeft = () => {
-        if(questionIndex-1>0)
+        if(questionIndex-1>=0)
         setQuestionIndex(questionIndex - 1);
     };
 

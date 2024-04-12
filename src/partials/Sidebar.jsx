@@ -157,7 +157,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                   end
                   to="/"
                   className={`block text-slate-200 truncate transition duration-150 ${
-                    pathname.includes("messages")
+                    pathname.includes("")
                       ? "hover:text-slate-200"
                       : "hover:text-white"
                   }`}
@@ -192,14 +192,14 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               {/* Modules */}
               <li
                 className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${
-                  pathname.includes("messages") && "bg-slate-900"
+                  pathname.includes("module") && "bg-slate-900"
                 }`}
               >
                 <NavLink
                   end
                   to="/module"
                   className={`block text-slate-200 truncate transition duration-150 ${
-                    pathname.includes("messages")
+                    pathname.includes("module")
                       ? "hover:text-slate-200"
                       : "hover:text-white"
                   }`}
@@ -209,7 +209,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                       <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                         <path
                           className={`fill-current ${
-                            pathname.includes("job")
+                            pathname.includes("module")
                               ? "text-indigo-600"
                               : "text-slate-700"
                           }`}
@@ -217,7 +217,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                         />
                         <path
                           className={`fill-current ${
-                            pathname.includes("job")
+                            pathname.includes("module")
                               ? "text-indigo-500"
                               : "text-slate-600"
                           }`}
@@ -225,7 +225,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                         />
                         <path
                           className={`fill-current ${
-                            pathname.includes("job")
+                            pathname.includes("module")
                               ? "text-indigo-300"
                               : "text-slate-400"
                           }`}
@@ -408,14 +408,14 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               {/* Planner */}
               <li
                 className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${
-                  pathname.includes("campaigns") && "bg-slate-900"
+                  pathname.includes("planner") && "bg-slate-900"
                 }`}
               >
                 <NavLink
                   end
                   to="/planner"
                   className={`block text-slate-200 truncate transition duration-150 ${
-                    pathname.includes("campaigns")
+                    pathname.includes("planner")
                       ? "hover:text-slate-200"
                       : "hover:text-white"
                   }`}
@@ -424,7 +424,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                     <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                       <path
                         className={`fill-current ${
-                          pathname.includes("campaigns")
+                          pathname.includes("planner")
                             ? "text-indigo-500"
                             : "text-slate-600"
                         }`}
@@ -432,7 +432,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                       />
                       <path
                         className={`fill-current ${
-                          pathname.includes("campaigns")
+                          pathname.includes("planner")
                             ? "text-indigo-300"
                             : "text-slate-400"
                         }`}

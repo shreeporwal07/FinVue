@@ -67,7 +67,7 @@ function Portifolio() {
               Investment Portifolio
             </span>
           </div>
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center m-2">
             <RealTimeGraph/>
           </div>
         </main>

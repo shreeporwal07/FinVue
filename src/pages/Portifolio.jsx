@@ -63,7 +63,7 @@ function Portifolio() {
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <main>
           <div className="m-10 space-y-4">
-            <span className="font-kalam sm:text-2xl md:text-5xl text-slate-100 font-bold">
+            <span className="font-kalam text-2xl md:text-5xl text-slate-100 font-bold">
               Investment Portifolio
             </span>
           </div>

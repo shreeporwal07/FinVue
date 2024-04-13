@@ -107,7 +107,7 @@ function Blogs() {
             <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
             <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
                 <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-                    <AddBoxIcon style={{ color: 'rgb(40, 202, 67)', cursor: 'pointer' }} onClick={() => setForm(!form)} />
+                    <div className="flex flex-start"><AddBoxIcon style={{ color: 'rgb(40, 202, 67)' , cursor: 'pointer' }} onClick={() => setForm(!form)} /></div>
                     {form === true ? (
                         <div className="blog flex gap-5 items-center justify-center shadow-md p-20">
                             <form onSubmit={handleSubmit} className="blogform flex flex-col gap-5">
@@ -142,7 +142,7 @@ function Blogs() {
                                 ) : (
                                     <></>
                                 )}
-                                <button className="blogbtn bg-orange text-white border border-orange h-12 w-96 flex items-center justify-center" type="submit">
+                                <button className="blogbtn bg-orange text-white border border-orange h-12 w-96 flex items-center justify-center " type="submit">
                                     Submit
                                 </button>
                             </form>

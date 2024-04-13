@@ -80,7 +80,7 @@ const Learning = () => {
   };
 
   const handlePageRight = () => {
-    if (questionIndex < data.length) setQuestionIndex(questionIndex + 1);
+    if (questionIndex < data.length-1) setQuestionIndex(questionIndex + 1);
     setCnt(0);
     setWrongCnt(-1);
   };

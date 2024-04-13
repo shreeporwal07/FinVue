@@ -13,6 +13,7 @@ import Learning from './pages/Learning';
 import Module1Q from './Question/Module1Q';
 import Calculator from './pages/Calculator';
 import Planner from './pages/Planner';
+import Portifolio from './pages/Portifolio';
 
 function App() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/mod1q" element={<Module1Q/>}/>
         <Route exact path="/calculator" element={<Calculator/>}/>
         <Route exact path="/planner" element={<Planner/>}/>
+        <Route exact path="/portifolio" element={<Portifolio/>}/>
       </Routes>
     </>
   );

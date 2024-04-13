@@ -12,7 +12,7 @@ function GoalSetting() {
     };
 
     return (
-        <div className="p-5">
+        <div className="bg-gradient-to-r from-[#434974] to-[#242949] p-4 rounded-lg text-white justify-between items-center">
             <h2 className="text-xl font-semibold">Goal Setting</h2>
             {!goalSet ? (
                 <>
@@ -32,10 +32,10 @@ function GoalSetting() {
                         onChange={(e) => setDeadline(e.target.value)}
                         className="w-full p-2 rounded bg-gray-800 text-white"
                     />
-                    <button onClick={handleSetGoal} className="mt-3 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Set Goal</button>
+                    <button onClick={handleSetGoal} className="mt-4 pl-4 pr-4 text-xl btn bg-[#8C52FF] hover:bg-[#9461F8] text-black hover:text-white rounded-3xl border-white">Set Goal</button>
                 </>
             ) : (
-                <p className="text-white mt-3">Goal set! Save ${goalAmount} by {deadline}.</p>
+                <p className="text-green-500 text-lg md:text-xl mt-8 font-kalam">Goal set! <br/>Save ${goalAmount} by {deadline}.</p>
             )}
         </div>
     );

@@ -148,7 +148,7 @@ function ExpenseTracking() {
           ))}
         </ul>
 
-        <p className="text-white mt-3">
+        <p className="text-white text-lg md:text-2xl mt-3 font-kalam">
           Total Expenses: $
           {expenses
             .reduce((acc, expense) => acc + parseFloat(expense.amount), 0)

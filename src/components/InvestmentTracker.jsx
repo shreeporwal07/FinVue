@@ -20,7 +20,7 @@ function InvestmentTracker() {
   };
 
   return (
-    <div className="p-5">
+    <div className="bg-gradient-to-r from-[#434974] to-[#242949] p-4 rounded-lg text-white justify-between items-center">
       <h2 className="text-xl font-semibold">Investment Tracker</h2>
       <label htmlFor="initialInvestment" className="text-white block mt-3">Initial Investment:</label>
       <input

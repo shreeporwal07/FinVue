@@ -97,15 +97,15 @@ const Learning = () => {
           {data.map(
             (item, index) =>
               questionIndex === index && (
-                <div className="w-full md:w-1/2" key={index}>
+                <div className="w-full md:w-1/2 " key={index}>
                   <div className="p-8 text-lg md:text-2xl space-y-8 align-center bg-gradient-to-r from-[#434974] to-[#242949] shadow-lg rounded-lg border border-slate-700 m-2">
                     <span className="text-xl md:text-3xl">
                       Q-{index + 1}. {item.Ques}
                     </span>
 
-                    <div>
+                    <div className="flex flex-col gap-5">
                       {item.mcq.options.map((option, i) => (
-                        <div className="flex gap-2 align-center" key={i}>
+                        <div  onClick={() => handleClick(option)} className="flex gap-5 align-center w-full p-2 rounded bg-gray-800 text-white" key={i}>
                           {cnt === option.no ? (
                             <div>
                               <CircleRoundedIcon
@@ -124,8 +124,8 @@ const Learning = () => {
                             </div>
                           )}
                           <div
-                            onClick={() => handleClick(option)}
-                            className={`cursor-pointer flex ${
+                           
+                            className={`cursor-pointer flex  ${
                               answeredQuestions.includes(questionIndex)
                                 ? "pointer-events-none"
                                 : ""

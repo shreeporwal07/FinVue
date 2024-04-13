@@ -18,42 +18,119 @@ const Learning = () => {
   useEffect(() => {
     setSelectedOption(null);
   }, [questionIndex]);
-
   const data = [
     {
-      Ques: "What is your name?",
+      Ques: "What is the primary goal of financial management?",
       mcq: {
         options: [
-          { no: 1, text: "Leena", isCorrect: true },
-          { no: 2, text: "Jatin", isCorrect: false },
-          { no: 3, text: "Shree", isCorrect: false },
-          { no: 4, text: "Zeel", isCorrect: false },
+          { no: 1, text: "Maximizing shareholder wealth", isCorrect: true },
+          { no: 2, text: "Maximizing employee satisfaction", isCorrect: false },
+          { no: 3, text: "Maximizing market share", isCorrect: false },
+          { no: 4, text: "Maximizing revenue", isCorrect: false },
         ],
       },
     },
     {
-      Ques: "What is your name?",
+      Ques: "Which financial statement shows a company's revenues and expenses over a period of time?",
       mcq: {
         options: [
-          { no: 1, text: "Dfag", isCorrect: true },
-          { no: 2, text: "Jatin", isCorrect: false },
-          { no: 3, text: "Shree", isCorrect: false },
-          { no: 4, text: "Zeel", isCorrect: false },
+          { no: 1, text: "Balance sheet", isCorrect: false },
+          { no: 2, text: "Income statement", isCorrect: true },
+          { no: 3, text: "Statement of cash flows", isCorrect: false },
+          { no: 4, text: "Statement of retained earnings", isCorrect: false },
         ],
       },
     },
     {
-      Ques: "What is your name?",
+      Ques: "What does ROI stand for in finance?",
       mcq: {
         options: [
-          { no: 1, text: "Dfag", isCorrect: true },
-          { no: 2, text: "Jatin", isCorrect: false },
-          { no: 3, text: "Shree", isCorrect: false },
-          { no: 4, text: "Zeel", isCorrect: false },
+          { no: 1, text: "Return on Investment", isCorrect: true },
+          { no: 2, text: "Risk of Inflation", isCorrect: false },
+          { no: 3, text: "Rate of Interest", isCorrect: false },
+          { no: 4, text: "Revenue from Operations", isCorrect: false },
         ],
       },
     },
-  ];
+    {
+      Ques: "Which of the following represents a long-term liability?",
+      mcq: {
+        options: [
+          { no: 1, text: "Accounts payable", isCorrect: false },
+          { no: 2, text: "Inventory", isCorrect: false },
+          { no: 3, text: "Accrued expenses", isCorrect: false },
+          { no: 4, text: "Bonds payable", isCorrect: true },
+        ],
+      },
+    },
+    {
+      Ques: "What is the formula for calculating the current ratio?",
+      mcq: {
+        options: [
+          { no: 1, text: "Current assets / Total assets", isCorrect: false },
+          { no: 2, text: "Total liabilities / Current liabilities", isCorrect: false },
+          { no: 3, text: "Current assets / Current liabilities", isCorrect: true },
+          { no: 4, text: "Total assets / Total equity", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "Which of the following is a measure of a company's profitability?",
+      mcq: {
+        options: [
+          { no: 1, text: "Working capital ratio", isCorrect: false },
+          { no: 2, text: "Debt-to-equity ratio", isCorrect: false },
+          { no: 3, text: "Gross profit margin", isCorrect: true },
+          { no: 4, text: "Quick ratio", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What is the purpose of financial leverage?",
+      mcq: {
+        options: [
+          { no: 1, text: "To increase liquidity", isCorrect: false },
+          { no: 2, text: "To increase profitability", isCorrect: true },
+          { no: 3, text: "To increase financial risk", isCorrect: false },
+          { no: 4, text: "To decrease tax liabilities", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "Which type of risk refers to the risk of loss due to changes in interest rates?",
+      mcq: {
+        options: [
+          { no: 1, text: "Market risk", isCorrect: false },
+          { no: 2, text: "Credit risk", isCorrect: false },
+          { no: 3, text: "Interest rate risk", isCorrect: true },
+          { no: 4, text: "Liquidity risk", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What is the role of a financial analyst?",
+      mcq: {
+        options: [
+          { no: 1, text: "To manage employee benefits", isCorrect: false },
+          { no: 2, text: "To provide legal advice", isCorrect: false },
+          { no: 3, text: "To evaluate investment opportunities", isCorrect: true },
+          { no: 4, text: "To oversee production operations", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What does the term 'diversification' refer to in finance?",
+      mcq: {
+        options: [
+          { no: 1, text: "Investing in a variety of assets to reduce risk", isCorrect: true },
+          { no: 2, text: "Focusing investments in a single industry", isCorrect: false },
+          { no: 3, text: "Maximizing returns through aggressive investment strategies", isCorrect: false },
+          { no: 4, text: "Reducing taxes through investment planning", isCorrect: false },
+        ],
+      },
+    }
+  ]
+  
 
   const handleClick = (option) => {
     if (!answeredQuestions.includes(questionIndex)) {

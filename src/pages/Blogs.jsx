@@ -142,8 +142,8 @@ function Blogs() {
                                 ) : (
                                     <></>
                                 )}
-                                <button className="blogbtn bg-orange text-white border border-orange h-12 w-96 flex items-center justify-center " type="submit">
-                                    Submit
+                                <button className="btn bg-[#8C52FF] hover:bg-[#9461F8] text-black hover:text-white rounded-3xl border-white" type="submit">
+                                    <span className="xs:block  text-xl">Submit</span>
                                 </button>
                             </form>
                         </div>

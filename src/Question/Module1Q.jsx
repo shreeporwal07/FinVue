@@ -68,8 +68,16 @@ const Learning = () => {
       mcq: {
         options: [
           { no: 1, text: "Current assets / Total assets", isCorrect: false },
-          { no: 2, text: "Total liabilities / Current liabilities", isCorrect: false },
-          { no: 3, text: "Current assets / Current liabilities", isCorrect: true },
+          {
+            no: 2,
+            text: "Total liabilities / Current liabilities",
+            isCorrect: false,
+          },
+          {
+            no: 3,
+            text: "Current assets / Current liabilities",
+            isCorrect: true,
+          },
           { no: 4, text: "Total assets / Total equity", isCorrect: false },
         ],
       },
@@ -113,7 +121,11 @@ const Learning = () => {
         options: [
           { no: 1, text: "To manage employee benefits", isCorrect: false },
           { no: 2, text: "To provide legal advice", isCorrect: false },
-          { no: 3, text: "To evaluate investment opportunities", isCorrect: true },
+          {
+            no: 3,
+            text: "To evaluate investment opportunities",
+            isCorrect: true,
+          },
           { no: 4, text: "To oversee production operations", isCorrect: false },
         ],
       },
@@ -122,15 +134,30 @@ const Learning = () => {
       Ques: "What does the term 'diversification' refer to in finance?",
       mcq: {
         options: [
-          { no: 1, text: "Investing in a variety of assets to reduce risk", isCorrect: true },
-          { no: 2, text: "Focusing investments in a single industry", isCorrect: false },
-          { no: 3, text: "Maximizing returns through aggressive investment strategies", isCorrect: false },
-          { no: 4, text: "Reducing taxes through investment planning", isCorrect: false },
+          {
+            no: 1,
+            text: "Investing in a variety of assets to reduce risk",
+            isCorrect: true,
+          },
+          {
+            no: 2,
+            text: "Focusing investments in a single industry",
+            isCorrect: false,
+          },
+          {
+            no: 3,
+            text: "Maximizing returns through aggressive investment strategies",
+            isCorrect: false,
+          },
+          {
+            no: 4,
+            text: "Reducing taxes through investment planning",
+            isCorrect: false,
+          },
         ],
       },
-    }
-  ]
-  
+    },
+  ];
 
   const handleClick = (option) => {
     if (!answeredQuestions.includes(questionIndex)) {
@@ -157,7 +184,7 @@ const Learning = () => {
   };
 
   const handlePageRight = () => {
-    if (questionIndex < data.length-1) setQuestionIndex(questionIndex + 1);
+    if (questionIndex < data.length - 1) setQuestionIndex(questionIndex + 1);
     setCnt(0);
     setWrongCnt(-1);
   };
@@ -182,7 +209,11 @@ const Learning = () => {
 
                     <div className="flex flex-col gap-5">
                       {item.mcq.options.map((option, i) => (
-                        <div  onClick={() => handleClick(option)} className="flex gap-5 align-center w-full p-2 rounded bg-gray-800 text-white" key={i}>
+                        <div
+                          onClick={() => handleClick(option)}
+                          className="flex gap-5 align-center w-full p-2 rounded bg-gray-800 text-white"
+                          key={i}
+                        >
                           {cnt === option.no ? (
                             <div>
                               <CircleRoundedIcon
@@ -201,7 +232,6 @@ const Learning = () => {
                             </div>
                           )}
                           <div
-                           
                             className={`cursor-pointer flex  ${
                               answeredQuestions.includes(questionIndex)
                                 ? "pointer-events-none"
@@ -224,8 +254,12 @@ const Learning = () => {
                     ) : null}
 
                     <div className="flex justify-center">
+                    {questionIndex >0 && (
                       <KeyboardArrowLeftIcon onClick={handlePageLeft} />
-                      <KeyboardArrowRightIcon onClick={handlePageRight} />
+                    )}
+                      {questionIndex < data.length - 1 && (
+                        <KeyboardArrowRightIcon onClick={handlePageRight} />
+                      )}
                     </div>
                   </div>
                 </div>

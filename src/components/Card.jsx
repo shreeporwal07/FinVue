@@ -6,7 +6,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Card = ({ data, handlelike, handleunlike, handleDelete }) => {
-  const { user } = useAuth0();
+  const { user,loginWithRedirect,isAuthenticated } = useAuth0();
   const userId = user?user.sub:undefined;
   console.log(data);
   return (
@@ -30,9 +30,9 @@ const Card = ({ data, handlelike, handleunlike, handleDelete }) => {
       </div>
       <div className="flex items-center text-white-700">
         {data && data.like && data.like.includes(userId) ? (
-          <ThumbUpIcon className="text-blue-500 cursor-pointer mr-2" onClick={() => { handleunlike(userId, data._id) }} />
+          <ThumbUpIcon className="text-blue-500 cursor-pointer mr-2" onClick={isAuthenticated? () => { handleunlike(userId, data._id) }:(loginWithRedirect)} />
         ) : (
-          <ThumbUpOffAltIcon className="text-gray-500 cursor-pointer mr-2" onClick={() => { handlelike(userId, data._id) }} />
+          <ThumbUpOffAltIcon className="text-gray-500 cursor-pointer mr-2" onClick={isAuthenticated? () => { handlelike(userId, data._id) }:(loginWithRedirect)} />
         )}
         <span >{data.like.length} likes</span>
       </div>

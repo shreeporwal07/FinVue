@@ -50,3 +50,4 @@ const Card = ({ data, handlelike, handleunlike, handleDelete, handledislike, han
 
 
 export default Card;
+

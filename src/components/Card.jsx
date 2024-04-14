@@ -7,7 +7,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const Card = ({ data, handlelike, handleunlike, handleDelete }) => {
   const { user } = useAuth0();
-  const userId = user.sub;
+  const userId = user?user.sub:undefined;
   console.log(data);
   return (
     <div className="flex py-5 px-5 flex-col col-span-full xl:col-span-6 bg-gradient-to-r from-[#434974] to-[#242949] shadow-lg rounded-lg border border-slate-700">
@@ -39,5 +39,6 @@ const Card = ({ data, handlelike, handleunlike, handleDelete }) => {
     </div>
   );
 };
+
 
 export default Card;

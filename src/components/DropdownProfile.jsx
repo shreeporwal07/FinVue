@@ -48,14 +48,14 @@ function DropdownProfile({ align }) {
       >
         <img
           className="w-10 h-10 rounded-full"
-          src={user!==undefined?user.picture:'UserAvatar'}
+          src={user!==undefined?user.picture:UserAvatar}
           width="32"
           height="32"
           alt="User"
         />
         <div className="flex items-center justify-center">
           <span className="hidden sm:inline-block truncate ml-4 text-2xl font-medium font-kalam text-slate-300 group-hover:text-slate-200 h-10 mt-2">
-          {user!==undefined?(<>{user.nickname}</>):(<>{`Leena Shree`}</>)}
+          {user!==undefined?(<>{user.given_name?user.given_name:user.nickname}</>):(<>{`Leena Shree`}</>)}
           </span>
 
           <svg

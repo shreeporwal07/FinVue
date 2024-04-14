@@ -16,7 +16,7 @@ function Blogs() {
         description: '',
         file: null,
     })
-    const { user } = useAuth0();
+    const { user ,isAuthenticated,loginWithRedirect} = useAuth0();
     const handleChange = (e) => {
         const { name, value, files } = e.target;
         if (name === 'file' && files && files.length > 0) {
@@ -43,6 +43,7 @@ function Blogs() {
         formData.append('description', formField.description);
         formData.append('file', formField.file);
         console.log(formData);
+
         try {
             const response = await axios.post('http://localhost:3000/createblog', formData);
             setFormField({
@@ -108,7 +109,7 @@ function Blogs() {
             <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
             <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
                 <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-                    <div className="flex flex-start"><AddBoxIcon style={{ color: 'rgb(40, 202, 67)' , cursor: 'pointer' }} onClick={() => setForm(!form)} /></div>
+                    <div className="flex flex-start"><AddBoxIcon style={{ color: 'rgb(40, 202, 67)' , cursor: 'pointer' }} onClick={isAuthenticated?() => setForm(!form):loginWithRedirect}/></div>
                     {form === true ? (
                         <div className="blog flex gap-5 items-center justify-center shadow-md p-20">
                             <form onSubmit={handleSubmit} className="blogform flex flex-col gap-5">

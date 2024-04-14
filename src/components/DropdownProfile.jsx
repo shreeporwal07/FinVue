@@ -5,8 +5,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import UserAvatar from "../images/user-avatar-32.png";
 
 function DropdownProfile({ align }) {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const { user } = useAuth0();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   const trigger = useRef(null);
   const dropdown = useRef(null);
 
@@ -15,16 +16,11 @@ function DropdownProfile({ align }) {
   useEffect(() => {
     const clickHandler = ({ target }) => {
       if (!dropdown.current) return;
-      if (
-        !dropdownOpen ||
-        dropdown.current.contains(target) ||
-        trigger.current.contains(target)
-      )
-        return;
+      if (!dropdownOpen || dropdown.current.contains(target) || trigger.current.contains(target)) return;
       setDropdownOpen(false);
     };
-    document.addEventListener("click", clickHandler);
-    return () => document.removeEventListener("click", clickHandler);
+    document.addEventListener('click', clickHandler);
+    return () => document.removeEventListener('click', clickHandler);
   });
 
   // close if the esc key is pressed
@@ -33,9 +29,10 @@ function DropdownProfile({ align }) {
       if (!dropdownOpen || keyCode !== 27) return;
       setDropdownOpen(false);
     };
-    document.addEventListener("keydown", keyHandler);
-    return () => document.removeEventListener("keydown", keyHandler);
+    document.addEventListener('keydown', keyHandler);
+    return () => document.removeEventListener('keydown', keyHandler);
   });
+
 
   return (
     <div className="relative inline-flex pl-4 pr-4 rounded-lg overflow-hidden">
@@ -58,19 +55,14 @@ function DropdownProfile({ align }) {
           {user!==undefined?(<>{user.given_name?user.given_name:user.nickname}</>):(<>{`Leena Shree`}</>)}
           </span>
 
-          <svg
-            className="w-3 h-3 ml-1 fill-current text-slate-400"
-            viewBox="0 0 12 12"
-          >
+          <svg className="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400" viewBox="0 0 12 12">
             <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
           </svg>
         </div>
       </button>
 
       <Transition
-        className={`origin-top-right z-10 absolute top-full min-w-44 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 py-1.5 rounded shadow-lg overflow-hidden mt-1 ${
-          align === "right" ? "right-0" : "left-0"
-        }`}
+        className={`origin-top-right z-10 absolute top-full min-w-44 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 py-1.5 rounded shadow-lg overflow-hidden mt-1 ${align === 'right' ? 'right-0' : 'left-0'}`}
         show={dropdownOpen}
         enter="transition ease-out duration-200 transform"
         enterStart="opacity-0 -translate-y-2"
@@ -85,12 +77,8 @@ function DropdownProfile({ align }) {
           onBlur={() => setDropdownOpen(false)}
         >
           <div className="pt-0.5 pb-2 px-3 mb-1 border-b border-slate-200 dark:border-slate-700">
-            <div className="font-medium text-slate-800 dark:text-slate-100">
-              Acme Inc.
-            </div>
-            <div className="text-xs text-slate-500 dark:text-slate-400 italic">
-              Administrator
-            </div>
+            <div className="font-medium text-slate-800 dark:text-slate-100">Acme Inc.</div>
+            <div className="text-xs text-slate-500 dark:text-slate-400 italic">Administrator</div>
           </div>
           <ul>
             <li>

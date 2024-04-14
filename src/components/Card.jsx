@@ -2,13 +2,14 @@ import React from 'react';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 import { useAuth0 } from '@auth0/auth0-react';
+import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
+import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 
-const Card = ({ data, handlelike, handleunlike, handleDelete }) => {
-  const { user,loginWithRedirect,isAuthenticated } = useAuth0();
-  const userId = user?user.sub:undefined;
-  console.log(data);
+const Card = ({ data, handlelike, handleunlike, handleDelete, handledislike, handleundislike }) => {
+  const { user, isAuthenticated, loginWithRedirect } = useAuth0(); // Destructure isAuthenticated and loginWithRedirect
+  const userId = user ? user.sub : undefined;
+
   return (
     <div className="flex py-5 px-5 flex-col col-span-full xl:col-span-6 bg-gradient-to-r from-[#434974] to-[#242949] shadow-lg rounded-lg border border-slate-700">
       <div className="flex justify-between items-center mb-4">
@@ -30,15 +31,19 @@ const Card = ({ data, handlelike, handleunlike, handleDelete }) => {
       </div>
       <div className="flex items-center text-white-700">
         {data && data.like && data.like.includes(userId) ? (
-          <ThumbUpIcon className="text-blue-500 cursor-pointer mr-2" onClick={isAuthenticated? () => { handleunlike(userId, data._id) }:(loginWithRedirect)} />
+          <ThumbUpIcon className="text-blue-500 cursor-pointer mr-2" onClick={() => { handleunlike(userId, data._id) }} />
         ) : (
-          <ThumbUpOffAltIcon className="text-gray-500 cursor-pointer mr-2" onClick={isAuthenticated? () => { handlelike(userId, data._id) }:(loginWithRedirect)} />
+          <ThumbUpOffAltIcon className="text-gray-500 cursor-pointer mr-2" onClick={isAuthenticated ? () => { handlelike(userId, data._id) } : loginWithRedirect} />
+        )}<span>{data.like.length} likes </span>
+        {data && data.dislike && data.dislike.includes(userId) ? (
+          <ThumbDownAltIcon className="text-blue-500 cursor-pointer mr-2" onClick={() => { handleundislike(userId, data._id) }} />
+        ) : (
+          <ThumbDownOffAltIcon className="text-gray-500 cursor-pointer mr-2" onClick={() => { handledislike(userId, data._id) }} />
         )}
-        <span >{data.like.length} likes</span>
+        <span>{data.dislike.length} dislikes</span>
       </div>
     </div>
   );
 };
-
 
 export default Card;

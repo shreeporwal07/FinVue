@@ -6,6 +6,7 @@ import Card from '../components/Card';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 
+
 function Blogs() {
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -104,6 +105,33 @@ function Blogs() {
             console.log('err in handleunlike frontend side', err);
         }
     }
+
+    const handledislike = async (userId, _id) => {
+        console.log('heyyy');
+        try {
+            const response = await axios.put('http://localhost:3000/dislikeblog', {
+                userId: userId, _id: _id
+            });
+            fetchData();
+            console.log({ "liked": response.data });
+
+        } catch (err) {
+            console.log('err in handledislike frontend side', err);
+        }
+    }
+
+    const handleundislike = async (userId, _id) => {
+        try {
+            const response = await axios.put('http://localhost:3000/undislikeblog', {
+                userId: userId, _id: _id
+            });
+            //console.log({"unliked":response.data});
+            fetchData();
+        } catch (err) {
+            console.log('err in handleundislike frontend side', err);
+        }
+    }
+
     return (
         <div className="flex h-screen overflow-hidden bg-[#181A2E]">
             <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
@@ -155,7 +183,7 @@ function Blogs() {
                     <div className="blogbox gap-30 flex flex-col mt-100 w-800 mx-auto">
                         {blog.map((data, index) => (
                             <div className="blogcard" key={index}>
-                                <Card data={data} handlelike={handlelike} handleunlike={handleunlike} handleDelete={handleDelete} />
+                                <Card data={data} handlelike={handlelike} handleunlike={handleunlike} handleDelete={handleDelete} handledislike={handledislike} handleundislike={handleundislike}/>
                             </div>
                         ))}
                     </div>

@@ -4,8 +4,13 @@ import Header from "../partials/Header";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import CircleRoundedIcon from "@mui/icons-material/CircleRounded";
-
-const Learning = () => {
+import { useAuth0 } from "@auth0/auth0-react";
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+const Module1Q = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [cnt, setCnt] = useState(0);
@@ -15,10 +20,24 @@ const Learning = () => {
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
 
   // Reset selected option when question changes
+  const { user } = useAuth0();
+
+  const fetchScore = async () => {
+    console.log('gha');
+    try {
+      const data = await axios.post(`http://localhost:3000/sendScore/${id}`, {
+        score: score, userId: user.sub,
+      })
+      console.log({data});
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   useEffect(() => {
     setSelectedOption(null);
   }, [questionIndex]);
-  const data = [
+  const dataArray = [[
     {
       Ques: "What is the primary goal of financial management?",
       mcq: {
@@ -156,9 +175,147 @@ const Learning = () => {
           },
         ],
       },
-    },
+    },],[
+      { 
+        Ques: "In a candlestick chart used in finance, what does a long upper shadow represent?",
+        mcq: {
+          options: [
+            { no: 1, text: "High volatility", isCorrect: true },
+            { no: 2, text: "Low volatility", isCorrect: false },
+            { no: 3, text: "Bullish trend", isCorrect: false },
+            { no: 4, text: "Bearish trend", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "In a stock market bar chart, what does the height of each bar represent?",
+        mcq: {
+          options: [
+            { no: 1, text: "Opening price", isCorrect: false },
+            { no: 2, text: "Closing price", isCorrect: false },
+            { no: 3, text: "Volume of trades", isCorrect: false },
+            { no: 4, text: "Price range between high and low", isCorrect: true },
+          ],
+        },
+      },
+      {
+        Ques: "What type of graph is commonly used to represent the distribution of returns for a financial asset?",
+        mcq: {
+          options: [
+            { no: 1, text: "Line graph", isCorrect: false },
+            { no: 2, text: "Histogram", isCorrect: true },
+            { no: 3, text: "Scatter plot", isCorrect: false },
+            { no: 4, text: "Pie chart", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "Which type of graph is suitable for showing the correlation between two financial assets?",
+        mcq: {
+          options: [
+            { no: 1, text: "Bar graph", isCorrect: false },
+            { no: 2, text: "Line graph", isCorrect: false },
+            { no: 3, text: "Scatter plot", isCorrect: true},
+            { no: 4, text: "Area chart", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "In a candlestick chart, what does a filled (black or red) body represent?",
+        mcq: {
+          options: [
+            { no: 1, text: "Bullish trend", isCorrect: false },
+            {
+              no: 2,
+              text: " Bearish trend",
+              isCorrect: true,
+            },
+            {
+              no: 3,
+              text: "High volatility",
+              isCorrect: false,
+            },
+            { no: 4, text: "Low volatility", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "In a finance graph, what does the term 'volume' typically refer to?",
+        mcq: {
+          options: [
+            { no: 1, text: "Price movement", isCorrect: false },
+            { no: 2, text: "Number of trades", isCorrect: true },
+            { no: 3, text: "Time duration", isCorrect: false },
+            { no: 4, text: "Rate of return", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "In a finance graph, what does a line connecting data points represent?",
+        mcq: {
+          options: [
+            { no: 1, text: "Trend", isCorrect: true },
+            { no: 2, text: "Volatility", isCorrect: false },
+            { no: 3, text: " Time", isCorrect: false },
+            { no: 4, text: "Volume", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "What is the primary purpose of using a logarithmic scale on a finance graph?",
+        mcq: {
+          options: [
+            { no: 1, text: "To compress large price movements", isCorrect: true },
+            { no: 2, text: "To exaggerate small price movements", isCorrect: false },
+            { no: 3, text: "To accurately represent time", isCorrect: false },
+            { no: 4, text: "To display volume of trades", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "What type of graph is commonly used to represent the distribution of returns for a portfolio of assets over time?",
+        mcq: {
+          options: [
+            { no: 1, text: "Line graph", isCorrect: false },
+            { no: 2, text: " Box plot", isCorrect: true },
+            {
+              no: 3,
+              text: "Gantt chart",
+              isCorrect: false,
+            },
+            { no: 4, text: "Renko chart", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "In a finance graph, what does the 'head and shoulders' pattern indicate?",
+        mcq: {
+          options: [
+            {
+              no: 1,
+              text: " Reversal of an upward trend",
+              isCorrect: true,
+            },
+            {
+              no: 2,
+              text: "Continuation of an upward trend",
+              isCorrect: false,
+            },
+            {
+              no: 3,
+              text: "Reversal of a downward trend",
+              isCorrect: false,
+            },
+            {
+              no: 4,
+              text: "Continuation of a downward trend",
+              isCorrect: false,
+            },
+          ],
+        },
+      },],
   ];
-
+  
   const handleClick = (option) => {
     if (!answeredQuestions.includes(questionIndex)) {
       if (option.isCorrect === true && option.no !== selectedOption?.no) {
@@ -188,7 +345,11 @@ const Learning = () => {
     setCnt(0);
     setWrongCnt(-1);
   };
-
+  const handleSubmit=()=>{
+    fetchScore();
+    navigate('/startlearning')
+  }
+  const data = dataArray[id];
   return (
     <div className="flex overflow-hidden bg-[#181A2E]">
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
@@ -233,8 +394,8 @@ const Learning = () => {
                           )}
                           <div
                             className={`cursor-pointer flex  ${answeredQuestions.includes(questionIndex)
-                                ? "pointer-events-none"
-                                : ""
+                              ? "pointer-events-none"
+                              : ""
                               }`}
                           >
                             {option.text}
@@ -265,7 +426,11 @@ const Learning = () => {
                         <KeyboardArrowRightIcon onClick={handlePageRight} />
                       )}
                     </div>
+                    <button onClick={handleSubmit}>
+                      submit
+                    </button>
                   </div>
+
                 </div>
               )
           )}
@@ -275,4 +440,4 @@ const Learning = () => {
   );
 };
 
-export default Learning;
+export default Module1Q;

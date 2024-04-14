@@ -31,10 +31,10 @@ function App() {
         <Route exact path="/module" element={<Module />} />
         <Route exact path="/blog" element={<Blogs />} />
         <Route exact path="/startlearning" element={<Learning/>}/>
-        <Route exact path="/mod1q" element={<Module1Q/>}/>
         <Route exact path="/calculator" element={<Calculator/>}/>
         <Route exact path="/planner" element={<Planner/>}/>
         <Route exact path="/portifolio" element={<Portifolio/>}/>
+        <Route exact path="/mod1q/:id" element={<Module1Q/>}/>
       </Routes>
     </>
   );

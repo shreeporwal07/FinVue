@@ -37,7 +37,7 @@ function Blogs() {
         const formData = new FormData();
 
         formData.append('userId', user.sub);
-        formData.append('username', user.name);
+        formData.append('username', user.nickname);
         formData.append('userImage', user.picture)
         formData.append('title', formField.title);
         formData.append('description', formField.description);

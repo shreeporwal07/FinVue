@@ -31,14 +31,14 @@ const Card = ({ data, handlelike, handleunlike, handleDelete, handledislike, han
       </div>
       <div className="flex items-center text-white-700">
         {data && data.like && data.like.includes(userId) ? (
-          <ThumbUpIcon className="text-blue-500 cursor-pointer mr-2" onClick={() => { handleunlike(userId, data._id) }} />
+          <ThumbUpIcon className="text-blue-500 cursor-pointer mr-2" onClick={isAuthenticated ? () => { handleunlike(userId, data._id) }: loginWithRedirect} />
         ) : (
           <ThumbUpOffAltIcon className="text-gray-500 cursor-pointer mr-2" onClick={isAuthenticated ? () => { handlelike(userId, data._id) } : loginWithRedirect} />
         )}<span>{data.like.length} likes </span>
         {data && data.dislike && data.dislike.includes(userId) ? (
-          <ThumbDownAltIcon className="text-blue-500 cursor-pointer mr-2" onClick={() => { handleundislike(userId, data._id) }} />
+          <ThumbDownAltIcon className="text-blue-500 cursor-pointer mr-2" onClick={isAuthenticated ? () => { handleundislike(userId, data._id) }: loginWithRedirect} />
         ) : (
-          <ThumbDownOffAltIcon className="text-gray-500 cursor-pointer mr-2" onClick={() => { handledislike(userId, data._id) }} />
+          <ThumbDownOffAltIcon className="text-gray-500 cursor-pointer mr-2" onClick={isAuthenticated ? () => { handledislike(userId, data._id) }: loginWithRedirect} />
         )}
         <span>{data.dislike.length} dislikes</span>
       </div>

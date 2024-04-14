@@ -4,8 +4,11 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { useAuth0 } from '@auth0/auth0-react';
+import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
+import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
+import { ThumbDown } from '@mui/icons-material';
 
-const Card = ({ data, handlelike, handleunlike, handleDelete }) => {
+const Card = ({ data, handlelike, handleunlike, handleDelete, handledislike, handleundislike }) => {
   const { user } = useAuth0();
   const userId = user?user.sub:undefined;
   console.log(data);
@@ -33,8 +36,13 @@ const Card = ({ data, handlelike, handleunlike, handleDelete }) => {
           <ThumbUpIcon className="text-blue-500 cursor-pointer mr-2" onClick={() => { handleunlike(userId, data._id) }} />
         ) : (
           <ThumbUpOffAltIcon className="text-gray-500 cursor-pointer mr-2" onClick={() => { handlelike(userId, data._id) }} />
+        )}<span >{data.like.length} likes </span>
+        {data && data.dislike && data.dislike.includes(userId) ? (
+          <ThumbDownAltIcon className="text-blue-500 cursor-pointer mr-2" onClick={() => { handleundislike(userId, data._id) }} />
+        ) : (
+          <ThumbDownOffAltIcon className="text-gray-500 cursor-pointer mr-2" onClick={() => { handledislike(userId, data._id) }} />
         )}
-        <span >{data.like.length} likes</span>
+        <span >{data.dislike.length} dislikes</span>
       </div>
     </div>
   );

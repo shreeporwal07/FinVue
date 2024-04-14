@@ -37,7 +37,7 @@ function Blogs() {
         const formData = new FormData();
 
         formData.append('userId', user.sub);
-        formData.append('username', user.nickname);
+        formData.append('username', user.name);
         formData.append('userImage', user.picture)
         formData.append('title', formField.title);
         formData.append('description', formField.description);
@@ -51,12 +51,11 @@ function Blogs() {
                 file: null,
             });
             fetchData();
-            document.getElementById('fileInput').value = '';
 
         } catch (error) {
             console.error('Error submitting form:', error);
         }
-       
+        document.getElementById('fileInput').value = '';
     };
     const fetchData = async () => {
         try {

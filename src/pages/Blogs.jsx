@@ -51,11 +51,12 @@ function Blogs() {
                 file: null,
             });
             fetchData();
+            document.getElementById('fileInput').value = '';
 
         } catch (error) {
             console.error('Error submitting form:', error);
         }
-        document.getElementById('fileInput').value = '';
+       
     };
     const fetchData = async () => {
         try {

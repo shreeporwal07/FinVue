@@ -232,11 +232,10 @@ const Learning = () => {
                             </div>
                           )}
                           <div
-                            className={`cursor-pointer flex  ${
-                              answeredQuestions.includes(questionIndex)
+                            className={`cursor-pointer flex  ${answeredQuestions.includes(questionIndex)
                                 ? "pointer-events-none"
                                 : ""
-                            }`}
+                              }`}
                           >
                             {option.text}
                           </div>
@@ -248,15 +247,20 @@ const Learning = () => {
                         Your Answer is Correct!
                       </div>
                     ) : wrongCnt !== -1 ? (
-                      <div className="text-red-500 font-kalam">
-                        Your Answer is Wrong!
-                      </div>
+                      <>
+                        <div className="text-red-500 font-kalam">
+                          Your Answer is Wrong!
+                        </div>
+                        <div className="text-green-500 font-kalam">
+                          Correct Answer: {"  "} {item.mcq.options.find(opt => opt.isCorrect)?.text}
+                        </div>
+                      </>
                     ) : null}
 
                     <div className="flex justify-center">
-                    {questionIndex >0 && (
-                      <KeyboardArrowLeftIcon onClick={handlePageLeft} />
-                    )}
+                      {questionIndex > 0 && (
+                        <KeyboardArrowLeftIcon onClick={handlePageLeft} />
+                      )}
                       {questionIndex < data.length - 1 && (
                         <KeyboardArrowRightIcon onClick={handlePageRight} />
                       )}

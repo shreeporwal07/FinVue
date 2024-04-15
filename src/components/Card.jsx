@@ -78,6 +78,7 @@ const Card = ({ data, handlelike, handleunlike, handleDelete, handledislike, han
 
     </div>
   );
+  
 };
 
 export default Card;

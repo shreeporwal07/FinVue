@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios';
 
 const options = [
-  'Update Profile',
+  'Update Profile Pic',
 ];
 
 const ITEM_HEIGHT = 48;

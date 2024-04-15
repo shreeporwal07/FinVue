@@ -16,22 +16,23 @@ function Blogs() {
         title: '',
         description: '',
         file: null,
-    })
+    });
     const { user ,isAuthenticated,loginWithRedirect} = useAuth0();
+
     const handleChange = (e) => {
         const { name, value, files } = e.target;
         if (name === 'file' && files && files.length > 0) {
             setFormField({
                 ...formField,
                 [name]: files[0],
-            })
+            });
         } else {
             setFormField({
                 ...formField,
                 [name]: value,
-            })
+            });
         }
-    }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -58,8 +59,8 @@ function Blogs() {
         } catch (error) {
             console.error('Error submitting form:', error);
         }
-       
     };
+    
     const fetchData = async () => {
         try {
             const response = await axios.get('http://localhost:3000/getblog');
@@ -68,9 +69,11 @@ function Blogs() {
             console.log('error in getblog frontend side:', err);
         }
     };
+
     useEffect(() => {
         fetchData();
     }, []);
+
     const handleDelete = async (_id) => {
         console.log('hey')
         try {
@@ -80,6 +83,7 @@ function Blogs() {
             console.log({ "handleDelete btn for blog in frontend": err })
         }
     }
+
     const handlelike = async (userId, _id) => {
         console.log('hegy');
         try {
@@ -137,27 +141,27 @@ function Blogs() {
             <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
             <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
                 <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-                    <div className="flex flex-start"><AddBoxIcon style={{ color: 'rgb(40, 202, 67)' , cursor: 'pointer' }} onClick={isAuthenticated?() => setForm(!form):loginWithRedirect}/></div>
+                    <div className="flex flex-start m-4 text-xl md:text-3xl font-kalam space-x-4 items-center"><span>Add New Blog</span> <AddBoxIcon style={{ color: 'white' , cursor: 'pointer' }} onClick={isAuthenticated?() => setForm(!form):loginWithRedirect}/></div>
                     {form === true ? (
-                        <div className="blog flex gap-5 items-center justify-center shadow-md p-20">
+                        <div className="blog flex gap-5 items-center justify-center shadow-md p-8">
                             <form onSubmit={handleSubmit} className="blogform flex flex-col gap-5">
                                 <textarea
-                                    className="forminput text-black w-96"
+                                    className="forminput p-2 rounded bg-gray-800 text-white"
                                     type="text"
                                     name="title"
                                     placeholder="Enter title"
                                     value={formField.title}
                                     onChange={handleChange}
-                                    style={{ color: 'black' }} // Set text color to white using inline style
+                                    style={{ color: 'white' }} // Set text color to white using inline style
                                 />
                                 <textarea
-                                    className="forminput text-black w-96"
+                                    className="forminput p-2 rounded bg-gray-800 text-white"
                                     type="text"
                                     name="description"
                                     placeholder="Enter description"
                                     value={formField.description}
                                     onChange={handleChange}
-                                    style={{ color: 'black' }} // Set text color to white using inline style
+                                    style={{ color: 'white' }} // Set text color to white using inline style
                                 />
                                 <input id='fileInput'
                                     className=""
@@ -167,13 +171,16 @@ function Blogs() {
                                     onChange={handleChange}
                                     style={{ color: 'white' }} // Set text color to white using inline style
                                 />
-                                {formField.image === null ? (
-                                    <img className="formfieldImage" src={uploadImage} alt="Upload Area" />
-                                ) : (
-                                    <></>
+                                {formField.file && (
+                                    <img
+                                        className="formfieldImage"
+                                        src={URL.createObjectURL(formField.file)}
+                                        alt="Selected Image"
+                                        style={{ maxWidth: '100%', maxHeight: '200px' }}
+                                    />
                                 )}
                                 <button className="btn bg-[#8C52FF] hover:bg-[#9461F8] text-black hover:text-white rounded-3xl border-white" type="submit">
-                                    <span className="xs:block  text-xl">Submit</span>
+                                    <span className="xs:block  text-lg">Submit</span>
                                 </button>
                             </form>
                         </div>
@@ -188,10 +195,7 @@ function Blogs() {
                         ))}
                     </div>
                 </div>
-
             </div>
-
-
     );
 }
 

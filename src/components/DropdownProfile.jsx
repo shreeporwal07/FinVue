@@ -164,7 +164,7 @@ function DropdownProfile({ align }) {
             </MenuItem>
           )}
           {options.map((option) => (
-            <MenuItem key={option} onClick={option === 'Update Profile' ? handleUpdateProfileClick : handleClose}>
+            <MenuItem key={option} onClick={option === 'Update Profile Pic' ? handleUpdateProfileClick : handleClose}>
               {option}
             </MenuItem>
           ))}

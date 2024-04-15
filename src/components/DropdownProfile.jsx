@@ -151,6 +151,9 @@ function DropdownProfile({ align }) {
             style: {
               maxHeight: ITEM_HEIGHT * 4.5,
               width: '20ch',
+              marginTop: '1rem', 
+              backgroundColor: '#434974',
+              color: 'white', 
             },
           }}
         >

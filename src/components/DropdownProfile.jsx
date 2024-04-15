@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import UserAvatar from "../images/user-avatar-32.png";
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import axios from 'axios';
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import Swal from "sweetalert2";
 
-const options = [
-  'Update Profile Pic',
-];
+import MenuItem from "@mui/material/MenuItem";
+import axios from "axios";
+
+const options = ["Update Profile Pic"];
 
 const ITEM_HEIGHT = 48;
 
@@ -40,29 +40,54 @@ function DropdownProfile({ align }) {
   };
 
   const handleFileSelected = async (event) => {
-    if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
+    if (
+      !event ||
+      !event.target ||
+      !event.target.files ||
+      event.target.files.length === 0
+    ) {
       return; // Do nothing if event or files are not available
     }
     const file = event.target.files[0];
-    console.log('gha')
+    console.log("gha");
     try {
       const formData = new FormData();
-      formData.append('file', file);
-      formData.append('userId', user.sub);
-      const response = await axios.post('http://localhost:3000/updateProfile', formData)
+      formData.append("file", file);
+      formData.append("userId", user.sub);
+      const response = await axios.post(
+        "http://localhost:3000/updateProfile",
+        formData
+      );
       setuserpic(response.data.user.picture);
       console.log(response);
+      Swal.fire({
+        icon: "success",
+        title: "Profile picture updated successfully",
+        timer: 2000, // Auto close after 2 seconds
+        showConfirmButton: false,
+      });
     } catch (err) {
       console.log(err);
+      let errorMessage =
+        "An error occurred while updating your profile picture.";
+      if (err.response && err.response.data && err.response.data.error) {
+        errorMessage = err.response.data.error;
+      }
+      Swal.fire({
+        icon: "error",
+        title: "Error updating profile picture",
+        text: errorMessage,
+      });
     }
-    console.log("Selected file:", file);
   };
 
   const fetchUserProfile = async () => {
     if (!user) return;
     const userId = user?.sub;
     try {
-      const response = await axios.get(`http://localhost:3000/getProfile/${userId}`);
+      const response = await axios.get(
+        `http://localhost:3000/getProfile/${userId}`
+      );
       if (response.data.user[0] && response.data.user[0].picture) {
         setuserpic(response.data.user[0].picture);
       }
@@ -76,7 +101,23 @@ function DropdownProfile({ align }) {
       logoutParams: {
         returnTo: window.location.origin,
       },
-    });
+    })
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Logged out successfully",
+          timer: 2000, // Auto close after 2 seconds
+          showConfirmButton: false,
+        });
+      })
+      .catch((error) => {
+        console.error("Error logging out:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Error logging out",
+          text: "An error occurred while logging out.",
+        });
+      });
   };
 
   const handleSignIn = () => {
@@ -104,7 +145,9 @@ function DropdownProfile({ align }) {
       >
         <img
           className="w-10 h-10 rounded-full"
-          src={userpic ? (userpic) : (user && user.picture ? (user.picture) : (UserAvatar))}
+          src={
+            userpic ? userpic : user && user.picture ? user.picture : UserAvatar
+          }
           width="32"
           height="32"
           alt="User"
@@ -130,19 +173,22 @@ function DropdownProfile({ align }) {
         <IconButton
           aria-label="more"
           id="long-button"
-          aria-controls={open ? 'long-menu' : undefined}
-          aria-expanded={open ? 'true' : undefined}
+          aria-controls={open ? "long-menu" : undefined}
+          aria-expanded={open ? "true" : undefined}
           aria-haspopup="true"
           onClick={handleClick}
         >
-          <svg className="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400" viewBox="0 0 12 12">
+          <svg
+            className="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400"
+            viewBox="0 0 12 12"
+          >
             <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
           </svg>
         </IconButton>
         <Menu
           id="long-menu"
           MenuListProps={{
-            'aria-labelledby': 'long-button',
+            "aria-labelledby": "long-button",
           }}
           anchorEl={anchorEl}
           open={open}
@@ -150,24 +196,27 @@ function DropdownProfile({ align }) {
           PaperProps={{
             style: {
               maxHeight: ITEM_HEIGHT * 4.5,
-              width: '20ch',
-              marginTop: '1rem', 
-              backgroundColor: '#434974',
-              color: 'white', 
+              width: "20ch",
+              marginTop: "1rem",
+              backgroundColor: "#434974",
+              color: "white",
             },
           }}
         >
           {isAuthenticated ? (
-            <MenuItem onClick={handleLogout}>
-              Logout
-            </MenuItem>
+            <MenuItem onClick={handleLogout}>Logout</MenuItem>
           ) : (
-            <MenuItem onClick={handleSignIn}>
-              SignIn
-            </MenuItem>
+            <MenuItem onClick={handleSignIn}>SignIn</MenuItem>
           )}
           {options.map((option) => (
-            <MenuItem key={option} onClick={option === 'Update Profile Pic' ? handleUpdateProfileClick : handleClose}>
+            <MenuItem
+              key={option}
+              onClick={
+                option === "Update Profile Pic"
+                  ? handleUpdateProfileClick
+                  : handleClose
+              }
+            >
               {option}
             </MenuItem>
           ))}

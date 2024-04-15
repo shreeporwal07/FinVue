@@ -5,8 +5,9 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import CircleRoundedIcon from "@mui/icons-material/CircleRounded";
 import { useAuth0 } from "@auth0/auth0-react";
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import axios from "axios";
+import Swal from 'sweetalert2';
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const Module1Q = () => {
   const navigate = useNavigate();
@@ -23,160 +24,172 @@ const Module1Q = () => {
   const { user } = useAuth0();
 
   const fetchScore = async () => {
-    console.log('gha');
+    console.log("gha");
     try {
       const data = await axios.post(`http://localhost:3000/sendScore/${id}`, {
-        score: score, userId: user.sub,
-      })
-      console.log({data});
+        score: score,
+        userId: user.sub,
+      });
+      console.log({ data });
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   useEffect(() => {
     setSelectedOption(null);
   }, [questionIndex]);
-  const dataArray = [[
-    {
-      Ques: "What is the primary goal of financial management?",
-      mcq: {
-        options: [
-          { no: 1, text: "Maximizing shareholder wealth", isCorrect: true },
-          { no: 2, text: "Maximizing employee satisfaction", isCorrect: false },
-          { no: 3, text: "Maximizing market share", isCorrect: false },
-          { no: 4, text: "Maximizing revenue", isCorrect: false },
-        ],
+  const dataArray = [
+    [
+      {
+        Ques: "What is the primary goal of financial management?",
+        mcq: {
+          options: [
+            { no: 1, text: "Maximizing shareholder wealth", isCorrect: true },
+            {
+              no: 2,
+              text: "Maximizing employee satisfaction",
+              isCorrect: false,
+            },
+            { no: 3, text: "Maximizing market share", isCorrect: false },
+            { no: 4, text: "Maximizing revenue", isCorrect: false },
+          ],
+        },
       },
-    },
-    {
-      Ques: "Which financial statement shows a company's revenues and expenses over a period of time?",
-      mcq: {
-        options: [
-          { no: 1, text: "Balance sheet", isCorrect: false },
-          { no: 2, text: "Income statement", isCorrect: true },
-          { no: 3, text: "Statement of cash flows", isCorrect: false },
-          { no: 4, text: "Statement of retained earnings", isCorrect: false },
-        ],
+      {
+        Ques: "Which financial statement shows a company's revenues and expenses over a period of time?",
+        mcq: {
+          options: [
+            { no: 1, text: "Balance sheet", isCorrect: false },
+            { no: 2, text: "Income statement", isCorrect: true },
+            { no: 3, text: "Statement of cash flows", isCorrect: false },
+            { no: 4, text: "Statement of retained earnings", isCorrect: false },
+          ],
+        },
       },
-    },
-    {
-      Ques: "What does ROI stand for in finance?",
-      mcq: {
-        options: [
-          { no: 1, text: "Return on Investment", isCorrect: true },
-          { no: 2, text: "Risk of Inflation", isCorrect: false },
-          { no: 3, text: "Rate of Interest", isCorrect: false },
-          { no: 4, text: "Revenue from Operations", isCorrect: false },
-        ],
+      {
+        Ques: "What does ROI stand for in finance?",
+        mcq: {
+          options: [
+            { no: 1, text: "Return on Investment", isCorrect: true },
+            { no: 2, text: "Risk of Inflation", isCorrect: false },
+            { no: 3, text: "Rate of Interest", isCorrect: false },
+            { no: 4, text: "Revenue from Operations", isCorrect: false },
+          ],
+        },
       },
-    },
-    {
-      Ques: "Which of the following represents a long-term liability?",
-      mcq: {
-        options: [
-          { no: 1, text: "Accounts payable", isCorrect: false },
-          { no: 2, text: "Inventory", isCorrect: false },
-          { no: 3, text: "Accrued expenses", isCorrect: false },
-          { no: 4, text: "Bonds payable", isCorrect: true },
-        ],
+      {
+        Ques: "Which of the following represents a long-term liability?",
+        mcq: {
+          options: [
+            { no: 1, text: "Accounts payable", isCorrect: false },
+            { no: 2, text: "Inventory", isCorrect: false },
+            { no: 3, text: "Accrued expenses", isCorrect: false },
+            { no: 4, text: "Bonds payable", isCorrect: true },
+          ],
+        },
       },
-    },
-    {
-      Ques: "What is the formula for calculating the current ratio?",
-      mcq: {
-        options: [
-          { no: 1, text: "Current assets / Total assets", isCorrect: false },
-          {
-            no: 2,
-            text: "Total liabilities / Current liabilities",
-            isCorrect: false,
-          },
-          {
-            no: 3,
-            text: "Current assets / Current liabilities",
-            isCorrect: true,
-          },
-          { no: 4, text: "Total assets / Total equity", isCorrect: false },
-        ],
+      {
+        Ques: "What is the formula for calculating the current ratio?",
+        mcq: {
+          options: [
+            { no: 1, text: "Current assets / Total assets", isCorrect: false },
+            {
+              no: 2,
+              text: "Total liabilities / Current liabilities",
+              isCorrect: false,
+            },
+            {
+              no: 3,
+              text: "Current assets / Current liabilities",
+              isCorrect: true,
+            },
+            { no: 4, text: "Total assets / Total equity", isCorrect: false },
+          ],
+        },
       },
-    },
-    {
-      Ques: "Which of the following is a measure of a company's profitability?",
-      mcq: {
-        options: [
-          { no: 1, text: "Working capital ratio", isCorrect: false },
-          { no: 2, text: "Debt-to-equity ratio", isCorrect: false },
-          { no: 3, text: "Gross profit margin", isCorrect: true },
-          { no: 4, text: "Quick ratio", isCorrect: false },
-        ],
+      {
+        Ques: "Which of the following is a measure of a company's profitability?",
+        mcq: {
+          options: [
+            { no: 1, text: "Working capital ratio", isCorrect: false },
+            { no: 2, text: "Debt-to-equity ratio", isCorrect: false },
+            { no: 3, text: "Gross profit margin", isCorrect: true },
+            { no: 4, text: "Quick ratio", isCorrect: false },
+          ],
+        },
       },
-    },
-    {
-      Ques: "What is the purpose of financial leverage?",
-      mcq: {
-        options: [
-          { no: 1, text: "To increase liquidity", isCorrect: false },
-          { no: 2, text: "To increase profitability", isCorrect: true },
-          { no: 3, text: "To increase financial risk", isCorrect: false },
-          { no: 4, text: "To decrease tax liabilities", isCorrect: false },
-        ],
+      {
+        Ques: "What is the purpose of financial leverage?",
+        mcq: {
+          options: [
+            { no: 1, text: "To increase liquidity", isCorrect: false },
+            { no: 2, text: "To increase profitability", isCorrect: true },
+            { no: 3, text: "To increase financial risk", isCorrect: false },
+            { no: 4, text: "To decrease tax liabilities", isCorrect: false },
+          ],
+        },
       },
-    },
-    {
-      Ques: "Which type of risk refers to the risk of loss due to changes in interest rates?",
-      mcq: {
-        options: [
-          { no: 1, text: "Market risk", isCorrect: false },
-          { no: 2, text: "Credit risk", isCorrect: false },
-          { no: 3, text: "Interest rate risk", isCorrect: true },
-          { no: 4, text: "Liquidity risk", isCorrect: false },
-        ],
+      {
+        Ques: "Which type of risk refers to the risk of loss due to changes in interest rates?",
+        mcq: {
+          options: [
+            { no: 1, text: "Market risk", isCorrect: false },
+            { no: 2, text: "Credit risk", isCorrect: false },
+            { no: 3, text: "Interest rate risk", isCorrect: true },
+            { no: 4, text: "Liquidity risk", isCorrect: false },
+          ],
+        },
       },
-    },
-    {
-      Ques: "What is the role of a financial analyst?",
-      mcq: {
-        options: [
-          { no: 1, text: "To manage employee benefits", isCorrect: false },
-          { no: 2, text: "To provide legal advice", isCorrect: false },
-          {
-            no: 3,
-            text: "To evaluate investment opportunities",
-            isCorrect: true,
-          },
-          { no: 4, text: "To oversee production operations", isCorrect: false },
-        ],
+      {
+        Ques: "What is the role of a financial analyst?",
+        mcq: {
+          options: [
+            { no: 1, text: "To manage employee benefits", isCorrect: false },
+            { no: 2, text: "To provide legal advice", isCorrect: false },
+            {
+              no: 3,
+              text: "To evaluate investment opportunities",
+              isCorrect: true,
+            },
+            {
+              no: 4,
+              text: "To oversee production operations",
+              isCorrect: false,
+            },
+          ],
+        },
       },
-    },
-    {
-      Ques: "What does the term 'diversification' refer to in finance?",
-      mcq: {
-        options: [
-          {
-            no: 1,
-            text: "Investing in a variety of assets to reduce risk",
-            isCorrect: true,
-          },
-          {
-            no: 2,
-            text: "Focusing investments in a single industry",
-            isCorrect: false,
-          },
-          {
-            no: 3,
-            text: "Maximizing returns through aggressive investment strategies",
-            isCorrect: false,
-          },
-          {
-            no: 4,
-            text: "Reducing taxes through investment planning",
-            isCorrect: false,
-          },
-        ],
+      {
+        Ques: "What does the term 'diversification' refer to in finance?",
+        mcq: {
+          options: [
+            {
+              no: 1,
+              text: "Investing in a variety of assets to reduce risk",
+              isCorrect: true,
+            },
+            {
+              no: 2,
+              text: "Focusing investments in a single industry",
+              isCorrect: false,
+            },
+            {
+              no: 3,
+              text: "Maximizing returns through aggressive investment strategies",
+              isCorrect: false,
+            },
+            {
+              no: 4,
+              text: "Reducing taxes through investment planning",
+              isCorrect: false,
+            },
+          ],
+        },
       },
-    },],[
-      { 
+    ],
+    [
+      {
         Ques: "In a candlestick chart used in finance, what does a long upper shadow represent?",
         mcq: {
           options: [
@@ -194,7 +207,11 @@ const Module1Q = () => {
             { no: 1, text: "Opening price", isCorrect: false },
             { no: 2, text: "Closing price", isCorrect: false },
             { no: 3, text: "Volume of trades", isCorrect: false },
-            { no: 4, text: "Price range between high and low", isCorrect: true },
+            {
+              no: 4,
+              text: "Price range between high and low",
+              isCorrect: true,
+            },
           ],
         },
       },
@@ -215,7 +232,7 @@ const Module1Q = () => {
           options: [
             { no: 1, text: "Bar graph", isCorrect: false },
             { no: 2, text: "Line graph", isCorrect: false },
-            { no: 3, text: "Scatter plot", isCorrect: true},
+            { no: 3, text: "Scatter plot", isCorrect: true },
             { no: 4, text: "Area chart", isCorrect: false },
           ],
         },
@@ -265,8 +282,16 @@ const Module1Q = () => {
         Ques: "What is the primary purpose of using a logarithmic scale on a finance graph?",
         mcq: {
           options: [
-            { no: 1, text: "To compress large price movements", isCorrect: true },
-            { no: 2, text: "To exaggerate small price movements", isCorrect: false },
+            {
+              no: 1,
+              text: "To compress large price movements",
+              isCorrect: true,
+            },
+            {
+              no: 2,
+              text: "To exaggerate small price movements",
+              isCorrect: false,
+            },
             { no: 3, text: "To accurately represent time", isCorrect: false },
             { no: 4, text: "To display volume of trades", isCorrect: false },
           ],
@@ -313,9 +338,10 @@ const Module1Q = () => {
             },
           ],
         },
-      },],
+      },
+    ],
   ];
-  
+
   const handleClick = (option) => {
     if (!answeredQuestions.includes(questionIndex)) {
       if (option.isCorrect === true && option.no !== selectedOption?.no) {
@@ -345,13 +371,21 @@ const Module1Q = () => {
     setCnt(0);
     setWrongCnt(-1);
   };
-  const handleSubmit=()=>{
+  const handleSubmit = () => {
     fetchScore();
-    navigate('/startlearning')
-  }
+    Swal.fire({
+      icon: "success",
+      title: "Your score has been submitted successfully!",
+      showConfirmButton: false,
+      timer: 2000, // Close the toast after 2 seconds
+    }).then(() => {
+      navigate("/startlearning");
+    });
+  };
+
   const data = dataArray[id];
   return (
-    <div className="flex overflow-hidden bg-[#181A2E]">
+    <div className="h-screen flex overflow-hidden bg-[#181A2E]">
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
@@ -393,10 +427,11 @@ const Module1Q = () => {
                             </div>
                           )}
                           <div
-                            className={`cursor-pointer flex  ${answeredQuestions.includes(questionIndex)
-                              ? "pointer-events-none"
-                              : ""
-                              }`}
+                            className={`cursor-pointer flex  ${
+                              answeredQuestions.includes(questionIndex)
+                                ? "pointer-events-none"
+                                : ""
+                            }`}
                           >
                             {option.text}
                           </div>
@@ -413,7 +448,8 @@ const Module1Q = () => {
                           Your Answer is Wrong!
                         </div>
                         <div className="text-green-500 font-kalam">
-                          Correct Answer: {"  "} {item.mcq.options.find(opt => opt.isCorrect)?.text}
+                          Correct Answer: {"  "}{" "}
+                          {item.mcq.options.find((opt) => opt.isCorrect)?.text}
                         </div>
                       </>
                     ) : null}
@@ -426,11 +462,8 @@ const Module1Q = () => {
                         <KeyboardArrowRightIcon onClick={handlePageRight} />
                       )}
                     </div>
-                    <button onClick={handleSubmit}>
-                      submit
-                    </button>
+                    <button className="btn text-md md:text-xl bg-[#8C52FF] hover:bg-[#9461F8] text-black hover:text-white rounded-3xl border-white" onClick={handleSubmit}>Submit</button>
                   </div>
-
                 </div>
               )
           )}

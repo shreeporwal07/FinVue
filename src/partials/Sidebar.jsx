@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import SidebarLinkGroup from "./SidebarLinkGroup";
+import Swal from "sweetalert2";
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const location = useLocation();
@@ -49,6 +50,29 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
       document.querySelector("body").classList.remove("sidebar-expanded");
     }
   }, [sidebarExpanded]);
+
+  // Logout function with error handling and toast notification
+  const handleLogout = () => {
+    logout({
+      returnTo: window.location.origin,
+    })
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Logged out successfully",
+          timer: 2000, // Auto close after 2 seconds
+          showConfirmButton: false,
+        });
+      })
+      .catch((error) => {
+        console.error("Error logging out:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Error logging out",
+          text: "An error occurred while logging out.",
+        });
+      });
+  };
 
   console.log("user", user);
   return (
@@ -458,7 +482,6 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
             </h3>
             <ul className="mt-5">
               {/* Authentication */}
-              {/* Authentication */}
               <SidebarLinkGroup>
                 {(handleClick, open) => {
                   return (
@@ -517,13 +540,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                                 end
                                 to="/logout"
                                 className="block text-slate-400 hover:text-slate-200 transition duration-150 truncate"
-                                onClick={() =>
-                                  logout({
-                                    logoutParams: {
-                                      returnTo: window.location.origin,
-                                    },
-                                  })
-                                }
+                                onClick={handleLogout}
                               >
                                 <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
                                   Logout

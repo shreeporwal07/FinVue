@@ -10,7 +10,7 @@ const Card = ({ data, handlelike, handleunlike, handleDelete, handledislike, han
   const { user, isAuthenticated, loginWithRedirect } = useAuth0();
   const userId = user ? user.sub : undefined;
   const [timeAgo, setTimeAgo] = useState('');
-
+  
   const getTimeAgo = (createdAt) => {
     const currentTime = new Date();
     const createdAtDate = new Date(createdAt);
@@ -46,7 +46,10 @@ const Card = ({ data, handlelike, handleunlike, handleDelete, handledislike, han
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center">
           <img className="h-8 w-8 rounded-full mr-2" src={data.picture} alt="Profile" />
+          <div className="flex flex-col">
           <span className="text-white-800 font-semibold">{data.username}</span>
+          </div>
+         
         </div>
         {userId === data.userId && (
           <div>

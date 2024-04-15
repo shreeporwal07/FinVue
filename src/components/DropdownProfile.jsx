@@ -8,23 +8,23 @@ import axios from 'axios';
 
 const options = [
   'Update Profile',
-  'Logout',
 ];
 
 const ITEM_HEIGHT = 48;
 
 function DropdownProfile({ align }) {
-  const { user } = useAuth0();
+  const { user, isAuthenticated, logout, loginWithRedirect } = useAuth0();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [userpic,setuserpic] = useState(null);
+  const [userpic, setuserpic] = useState(null);
   const trigger = useRef(null);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchUserProfile();
-   },[])
+  }, []);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -32,48 +32,67 @@ function DropdownProfile({ align }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const handleUpdateProfileClick = () => {
     // Trigger the file input click event
     fileInput.current.click();
     handleClose(); // Close the dropdown after triggering the file input
   };
 
-  const handleFileSelected =async(event) => {
+  const handleFileSelected = async (event) => {
     if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
       return; // Do nothing if event or files are not available
     }
     const file = event.target.files[0];
     console.log('gha')
-    try{
+    try {
       const formData = new FormData();
-      formData.append('file',file);
-      formData.append('userId',user.sub);
-      const response = await axios.post('http://localhost:3000/updateProfile',formData)
+      formData.append('file', file);
+      formData.append('userId', user.sub);
+      const response = await axios.post('http://localhost:3000/updateProfile', formData)
       setuserpic(response.data.user.picture);
       console.log(response);
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
     console.log("Selected file:", file);
   };
+
   const fetchUserProfile = async () => {
-    if(!user)return;
+    if (!user) return;
     const userId = user?.sub;
     try {
       const response = await axios.get(`http://localhost:3000/getProfile/${userId}`);
       if (response.data.user[0] && response.data.user[0].picture) {
         setuserpic(response.data.user[0].picture);
       }
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
-  }
-  useEffect(()=>{
-   fetchUserProfile();
-  },[user])
+  };
+
+  const handleLogout = () => {
+    logout({
+      logoutParams: {
+        returnTo: window.location.origin,
+      },
+    });
+  };
+
+  const handleSignIn = () => {
+    loginWithRedirect({
+      redirectUri: window.location.origin,
+    });
+  };
+
+  useEffect(() => {
+    fetchUserProfile();
+  }, [user]);
 
   const fileInput = useRef(null);
-  console.log("userpic",userpic);
+
+  console.log("userpic", userpic);
+
   return (
     <div className="relative inline-flex pl-4 pr-4 rounded-lg overflow-hidden">
       <button
@@ -85,7 +104,7 @@ function DropdownProfile({ align }) {
       >
         <img
           className="w-10 h-10 rounded-full"
-          src={userpic?( userpic) :( user && user.picture ?( user.picture) :(UserAvatar))}
+          src={userpic ? (userpic) : (user && user.picture ? (user.picture) : (UserAvatar))}
           width="32"
           height="32"
           alt="User"
@@ -135,6 +154,15 @@ function DropdownProfile({ align }) {
             },
           }}
         >
+          {isAuthenticated ? (
+            <MenuItem onClick={handleLogout}>
+              Logout
+            </MenuItem>
+          ) : (
+            <MenuItem onClick={handleSignIn}>
+              SignIn
+            </MenuItem>
+          )}
           {options.map((option) => (
             <MenuItem key={option} onClick={option === 'Update Profile' ? handleUpdateProfileClick : handleClose}>
               {option}

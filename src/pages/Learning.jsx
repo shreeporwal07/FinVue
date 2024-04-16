@@ -12,7 +12,6 @@ const modules = [
     { id: 4, title: 'Basic Question on Retirement Planning', path: `/mod1q/3` },
     { id: 5, title: 'Basic Question on Risk Management', path: `/mod1q/4` }
 ];
-
 const Learning = () => {
     const [totalscore, setTotalScore] = useState(0);
     const { user, isAuthenticated, loginWithRedirect } = useAuth0();
@@ -20,10 +19,9 @@ const Learning = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [score, setScore] = useState([]);
     const fetchScore = async () => {
-        console.log('faga');
         if (userId) { // Check if userId is defined
             try {
-                const { data } = await axios.get(`http://localhost:3000/getScore/${userId}`);
+                const { data } = await axios.get(`https://finvue-backened.onrender.com/getScore/${userId}`);
                 console.log(data);
                 // Extract the score array from the response data
                 const userScore = data.user[0].score;

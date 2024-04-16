@@ -9,7 +9,6 @@ import FeedbackDialog from "../pages/FeedbackDialog";
 import Swal from "sweetalert2";
 
 const options = ["Update Profile Pic", "Give Feedback"];
-
 const ITEM_HEIGHT = 48;
 
 function DropdownProfile({ align }) {
@@ -49,13 +48,12 @@ function DropdownProfile({ align }) {
       return; // Do nothing if event or files are not available
     }
     const file = event.target.files[0];
-    console.log("gha");
     try {
       const formData = new FormData();
       formData.append("file", file);
       formData.append("userId", user.sub);
       const response = await axios.post(
-        "http://localhost:3000/updateProfile",
+        `https://finvue-backened.onrender.com/updateProfile`,
         formData
       );
       setuserpic(response.data.user.picture);
@@ -86,7 +84,7 @@ function DropdownProfile({ align }) {
     const userId = user?.sub;
     try {
       const response = await axios.get(
-        `http://localhost:3000/getProfile/${userId}`
+        `https://finvue-backened.onrender.com/getProfile/${userId}`
       );
       if (response.data.user[0] && response.data.user[0].picture) {
         setuserpic(response.data.user[0].picture);

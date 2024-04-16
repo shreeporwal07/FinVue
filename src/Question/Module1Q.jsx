@@ -22,11 +22,10 @@ const Module1Q = () => {
 
   // Reset selected option when question changes
   const { user } = useAuth0();
-
   const fetchScore = async () => {
     console.log("gha");
     try {
-      const data = await axios.post(`http://localhost:3000/sendScore/${id}`, {
+      const data = await axios.post(`https://finvue-backened.onrender.com/sendScore/${id}`, {
         score: score,
         userId: user.sub,
       });

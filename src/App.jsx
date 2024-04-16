@@ -14,6 +14,7 @@ import Module1Q from './Question/Module1Q';
 import Calculator from './pages/Calculator';
 import Planner from './pages/Planner';
 import Portifolio from './pages/Portifolio';
+import Feedback from './pages/FeedbackDialog';
 
 function App() {
   const location = useLocation();

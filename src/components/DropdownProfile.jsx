@@ -6,6 +6,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import axios from "axios";
 import FeedbackDialog from "../pages/FeedbackDialog";
+import Swal from "sweetalert2";
 
 const options = ["Update Profile Pic", "Give Feedback"];
 
@@ -61,7 +62,10 @@ function DropdownProfile({ align }) {
       console.log(response);
       handleClose();
       setOpenDialog(false);
-      // You can show a success alert here if needed
+      Swal.fire({
+        title: "Profile picture updated successfully!",
+        icon: "success",
+      });
     } catch (err) {
       console.log(err);
       let errorMessage =
@@ -69,7 +73,11 @@ function DropdownProfile({ align }) {
       if (err.response && err.response.data && err.response.data.error) {
         errorMessage = err.response.data.error;
       }
-      // You can show an error alert here if needed
+      Swal.fire({
+        title: "Error",
+        text: errorMessage,
+        icon: "error",
+      });
     }
   };
 
@@ -95,11 +103,18 @@ function DropdownProfile({ align }) {
       },
     })
       .then(() => {
-        // You can show a success alert here if needed
+        Swal.fire({
+          title: "Logged out successfully!",
+          icon: "success",
+        });
       })
       .catch((error) => {
         console.error("Error logging out:", error);
-        // You can show an error alert here if needed
+        Swal.fire({
+          title: "Error",
+          text: "An error occurred while logging out.",
+          icon: "error",
+        });
       });
   };
 

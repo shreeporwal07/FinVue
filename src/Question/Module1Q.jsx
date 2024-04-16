@@ -340,6 +340,342 @@ const Module1Q = () => {
         },
       },
     ],
+    [
+      {
+        Ques: "What is the primary purpose of creating a budget?",
+        mcq: {
+          options: [
+            { no: 1, text: "To restrict spending", isCorrect: false },
+            { no: 2, text: "To track income only", isCorrect: false },
+            { no: 3, text: "To manage income and expenses effectively", isCorrect: true },
+            { no: 4, text: "To increase debt", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "Why is it important to set financial goals when creating a budget?",
+        mcq: {
+          options: [
+            { no: 1, text: "To restrict spending", isCorrect: false },
+            { no: 2, text: "To have something to aim for and prioritize expenses accordingly", isCorrect: true },
+            { no: 3, text: "To increase debt", isCorrect: false },
+            { no: 4, text: "To track income only", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "What does it mean to 'pay yourself first' when budgeting?",
+        mcq: {
+          options: [
+            { no: 1, text: "To spend all your income on personal expenses", isCorrect: false },
+            { no: 2, text: "To prioritize saving or investing a portion of your income before paying bills or expenses", isCorrect: true },
+            { no: 3, text: "To delay paying bills or expenses until later", isCorrect: false },
+            { no: 4, text: "To allocate all income to debt repayment", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "What does the term 'emergency fund' refer to in budgeting?",
+        mcq: {
+          options: [
+            { no: 1, text: "A fund used for daily expenses", isCorrect: false },
+            { no: 2, text: "A fund used for vacations and luxury purchases", isCorrect: false },
+            { no: 3, text: "A fund used to cover unexpected expenses or financial emergencies", isCorrect: true },
+            { no: 4, text: "A fund used for long-term investments", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "What is the purpose of tracking expenses in a budget?",
+        mcq: {
+          options: [
+            { no: 1, text: "To increase spending", isCorrect: false },
+            { no: 2, text: "To ignore financial goals", isCorrect: false },
+            { no: 3, text: "To identify where money is being spent and make adjustments as needed", isCorrect: true },
+            { no: 4, text: "To decrease income", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "What is the difference between fixed and variable expenses in a budget?",
+        mcq: {
+          options: [
+            { no: 1, text: "There is no difference", isCorrect: false },
+            { no: 2, text: "Fixed expenses change from month to month, while variable expenses remain constant", isCorrect: false },
+            { no: 3, text: "Fixed expenses are essential for survival, while variable expenses are optional", isCorrect: false },
+            { no: 4, text: "Fixed expenses remain constant from month to month, while variable expenses can change", isCorrect: true },
+          ],
+        },
+      },
+      {
+        Ques: "What is the '50/30/20 rule' in budgeting?",
+        mcq: {
+          options: [
+            { no: 1, text: "A rule stating that 50% of income should be spent on housing, 30% on transportation, and 20% on entertainment", isCorrect: false },
+            { no: 2, text: "A rule stating that 50% of income should be saved, 30% should be invested, and 20% can be spent freely", isCorrect: false },
+            { no: 3, text: "A rule stating that 50% of income should be spent on needs, 30% on wants, and 20% on savings or debt repayment", isCorrect: true },
+            { no: 4, text: "A rule stating that 50% of income should be spent on food, 30% on utilities, and 20% on healthcare", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "What does the term 'sinking fund' refer to in budgeting?",
+        mcq: {
+          options: [
+            { no: 1, text: "A fund used to cover the cost of sinking ships", isCorrect: false },
+            { no: 2, text: "A fund used for retirement savings", isCorrect: false },
+            { no: 3, text: "A fund used to save for a specific future expense or purchase by setting aside money regularly", isCorrect: true },
+            { no: 4, text: "A fund used to cover unexpected expenses", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "What does the term 'debt snowball' refer to in budgeting?",
+        mcq: {
+          options: [
+            { no: 1, text: "A method of increasing debt", isCorrect: false },
+            { no: 2, text: "A strategy for paying off debts by focusing on the smallest balances first", isCorrect: true },
+            { no: 3, text: "A method of saving money", isCorrect: false },
+            { no: 4, text: "A budgeting technique for large expenses", isCorrect: false },
+          ],
+        },
+      },
+      {
+        Ques: "What is the purpose of reviewing and adjusting a budget regularly?",
+        mcq: {
+          options: [
+            { no: 1, text: "To set financial goals", isCorrect: false },
+            { no: 2, text: "To restrict spending", isCorrect: false },
+            { no: 3, text: "To ensure that the budget reflects current financial circumstances and goals", isCorrect: true },
+            { no: 4, text: "To increase debt", isCorrect: false },
+          ],
+        },
+      },
+    ],
+    [
+    {
+      Ques: "What does the term 'nest egg' refer to in retirement planning?",
+      mcq: {
+        options: [
+          { no: 1, text: "A fund used for daily expenses", isCorrect: false },
+          { no: 2, text: "A fund used for vacations and luxury purchases", isCorrect: false },
+          { no: 3, text: "A fund used to cover unexpected expenses or financial emergencies", isCorrect: false },
+          { no: 4, text: "A fund set aside for retirement savings", isCorrect: true },
+        ],
+      },
+    },
+    {
+      Ques: "What are some common retirement savings vehicles?",
+      mcq: {
+        options: [
+          { no: 1, text: "Checking accounts", isCorrect: false },
+          { no: 2, text: "Credit cards", isCorrect: false },
+          { no: 3, text: "401(k) plans, IRAs, and employer-sponsored retirement accounts", isCorrect: true },
+          { no: 4, text: "Personal loans", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What role does Social Security play in retirement planning?",
+      mcq: {
+        options: [
+          { no: 1, text: "It is the primary source of retirement income for most people", isCorrect: false },
+          { no: 2, text: "It provides supplemental income to retirement savings and pensions", isCorrect: true },
+          { no: 3, text: "It is a government-run retirement savings program", isCorrect: false },
+          { no: 4, text: "It is not relevant to retirement planning", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What does the term 'retirement age' refer to?",
+      mcq: {
+        options: [
+          { no: 1, text: "The age at which one stops working and receives Social Security benefits", isCorrect: false },
+          { no: 2, text: "The age at which one becomes eligible for Medicare", isCorrect: false },
+          { no: 3, text: "The age at which one can access retirement savings penalty-free", isCorrect: false },
+          { no: 4, text: "The age at which one typically retires from full-time employment", isCorrect: true },
+        ],
+      },
+    },
+    {
+      Ques: "What are some common sources of retirement income?",
+      mcq: {
+        options: [
+          { no: 1, text: "Social Security benefits only", isCorrect: false },
+          { no: 2, text: "Savings and investments, pensions, and Social Security benefits", isCorrect: true },
+          { no: 3, text: "Employment income and rental income", isCorrect: false },
+          { no: 4, text: "Inheritance and gifts", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What does the term 'required minimum distribution (RMD)' refer to in retirement planning?",
+      mcq: {
+        options: [
+          { no: 1, text: "The maximum amount one can contribute to a retirement account each year", isCorrect: false },
+          { no: 2, text: "The minimum amount one must withdraw from certain retirement accounts after reaching a certain age", isCorrect: true },
+          { no: 3, text: "The minimum amount one must contribute to a retirement account each year", isCorrect: false },
+          { no: 4, text: "The maximum amount one can withdraw from a retirement account each year", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What is the purpose of retirement income planning?",
+      mcq: {
+        options: [
+          { no: 1, text: "To restrict spending during retirement", isCorrect: false },
+          { no: 2, text: "To manage income and expenses effectively", isCorrect: false },
+          { no: 3, text: "To ensure a reliable and sustainable income stream during retirement years", isCorrect: true },
+          { no: 4, text: "To increase debt", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What role does inflation play in retirement planning?",
+      mcq: {
+        options: [
+          { no: 1, text: "It has no impact on retirement savings", isCorrect: false },
+          { no: 2, text: "It reduces the value of retirement savings over time", isCorrect: true },
+          { no: 3, text: "It increases the value of retirement savings over time", isCorrect: false },
+          { no: 4, text: "It accelerates the growth of retirement savings", isCorrect: false },
+        ],
+      },
+    },
+  ],
+  [
+    {
+      Ques: "What is the primary purpose of creating a budget?",
+      mcq: {
+        options: [
+          { no: 1, text: "To restrict spending", isCorrect: false },
+          { no: 2, text: "To track income only", isCorrect: false },
+          { no: 3, text: "To manage income and expenses effectively", isCorrect: true },
+          { no: 4, text: "To increase debt", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What is the key benefit of investing in stocks?",
+      mcq: {
+        options: [
+          { no: 1, text: "Guaranteed returns", isCorrect: false },
+          { no: 2, text: "Low risk", isCorrect: false },
+          { no: 3, text: "Potential for high returns", isCorrect: true },
+          { no: 4, text: "Fixed interest payments", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What is a common strategy for paying off debts?",
+      mcq: {
+        options: [
+          { no: 1, text: "Ignoring debt", isCorrect: false },
+          { no: 2, text: "Paying off large debts first", isCorrect: false },
+          { no: 3, text: "Focusing on smallest balances first", isCorrect: true },
+          { no: 4, text: "Increasing debt through loans", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What is a key component of a financial plan?",
+      mcq: {
+        options: [
+          { no: 1, text: "Daily expenses", isCorrect: false },
+          { no: 2, text: "Savings goals", isCorrect: false },
+          { no: 3, text: "Long-term financial objectives", isCorrect: true },
+          { no: 4, text: "Current income only", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What is a common retirement savings account?",
+      mcq: {
+        options: [
+          { no: 1, text: "Personal savings account", isCorrect: false },
+          { no: 2, text: "IRA (Individual Retirement Account)", isCorrect: true },
+          { no: 3, text: "Checking account", isCorrect: false },
+          { no: 4, text: "401(k) account", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What does APR stand for in the context of loans?",
+      mcq: {
+        options: [
+          { no: 1, text: "Average Percentage Rate", isCorrect: false },
+          { no: 2, text: "Annual Payment Rate", isCorrect: false },
+          { no: 3, text: "Annual Percentage Rate", isCorrect: true },
+          { no: 4, text: "Adjusted Payment Ratio", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What is the purpose of diversification in investment?",
+      mcq: {
+        options: [
+          { no: 1, text: "To focus on a single investment for maximum returns", isCorrect: false },
+          { no: 2, text: "To minimize risk by spreading investments across different assets", isCorrect: true },
+          { no: 3, text: "To increase debt", isCorrect: false },
+          { no: 4, text: "To ignore market trends", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What is the difference between a stock and a bond?",
+      mcq: {
+        options: [
+          { no: 1, text: "Stocks represent ownership in a company, while bonds represent debt", isCorrect: true },
+          { no: 2, text: "Stocks have fixed returns, while bonds have variable returns", isCorrect: false },
+          { no: 3, text: "Stocks pay interest, while bonds pay dividends", isCorrect: false },
+          { no: 4, text: "Stocks are only issued by governments, while bonds are issued by corporations", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What is the purpose of asset allocation in investment?",
+      mcq: {
+        options: [
+          { no: 1, text: "To focus on a single asset class for maximum returns", isCorrect: false },
+          { no: 2, text: "To minimize risk by distributing investments across different asset classes", isCorrect: true },
+          { no: 3, text: "To increase debt", isCorrect: false },
+          { no: 4, text: "To ignore market trends", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What does the term 'liquidity' refer to in finance?",
+      mcq: {
+        options: [
+          { no: 1, text: "The ability to borrow money", isCorrect: false },
+          { no: 2, text: "The ability to convert assets into cash quickly without significant loss of value", isCorrect: true },
+          { no: 3, text: "The profitability of investments", isCorrect: false },
+          { no: 4, text: "The rate of return on investments", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What is the purpose of a credit score?",
+      mcq: {
+        options: [
+          { no: 1, text: "To track income", isCorrect: false },
+          { no: 2, text: "To determine eligibility for loans and credit cards", isCorrect: true },
+          { no: 3, text: "To increase debt", isCorrect: false },
+          { no: 4, text: "To predict stock market trends", isCorrect: false },
+        ],
+      },
+    },
+    {
+      Ques: "What is the difference between a traditional IRA and a Roth IRA?",
+      mcq: {
+        options: [
+          { no: 1, text: "Contributions to a traditional IRA are tax-deductible, while contributions to a Roth IRA are not", isCorrect: true },
+          { no: 2, text: "Contributions to a Roth IRA are tax-deductible, while contributions to a traditional IRA are not", isCorrect: false },
+          { no: 3, text: "Roth IRAs have required minimum distributions, while traditional IRAs do not", isCorrect: false },
+          { no: 4, text: "Traditional IRAs allow tax-free withdrawals, while Roth IRAs do not", isCorrect: false },
+        ],
+      },
+    },
+  ]
   ];
 
   const handleClick = (option) => {

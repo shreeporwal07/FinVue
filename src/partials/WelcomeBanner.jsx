@@ -4,10 +4,10 @@ import {Link } from "react-router-dom";
 
 function WelcomeBanner() {
   return (
-    <div className="relative bg-gradient-to-r from-[#434974] to-[#242949] p-4 sm:p-6 rounded-lg mb-8 h-80">
+    <div className="relative bg-gradient-to-r from-[#434974] to-[#242949] p-4 sm:p-6 rounded-lg mb-8 h-80 overflow-hidden">
       {/* Background illustration */}
       <div
-        className="absolute right-0 top-0 -mt-4 mr-16 pointer-events-none xl:block"
+        className="absolute right-0 top-0 -mt-4 mr-16 pointer-events-none xl:block "
         aria-hidden="true"
       >
         <svg width="319" height="198" xmlnsXlink="http://www.w3.org/1999/xlink">

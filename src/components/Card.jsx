@@ -57,7 +57,7 @@ const Card = ({ data, handlelike, handleunlike, handleDelete, handledislike, han
           </div>
         )}
       </div>
-      <h2 className="text-lg md:text-2xl m-2 font-semibold font-kalam">{data.title}</h2>
+      <h2 className="text-lg md:text-2xl m-2 font-semibold font-kalam w-[20rem] md:w-[32rem]">{data.title}</h2>
       {data.image?(<div className="m-2">
         <img className="rounded h-[20rem] md:h-[32rem] w-[20rem] md:w-[32rem]" src={data.image} alt="Blog" />
       </div>):<></>}

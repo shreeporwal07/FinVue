@@ -152,10 +152,24 @@ function RealTimeGraph() {
             <span>Time Left: {timeRemaining} sec</span>
           </p>
         ) : (
-          <p className="text-white text-md md:text-lg m-4 font-inter font-semibold justify-center items-center flex">
-            You have ${userMoney.toFixed(2)} and you have to make $30 profit in{" "}
-            {timeRemaining} sec
-          </p>
+          <div>
+            <p className="text-white text-md md:text-lg m-4 font-inter font-semibold justify-center items-center flex">
+              You have ${userMoney.toFixed(2)} and you have to make $30 profit in{" "}
+              {timeRemaining} sec
+            </p>
+            <div className="text-white text-md md:text-lg flex flex-col font-inter rounded-3xl p-8">
+              <ul className="list-disc">
+                <li>Start: User begins with $200.</li>
+                <li>Real-Time Trading: Buy or sell stocks with 30-second time limit.</li>
+                <li>Goal: Achieve specified profit.</li>
+                <li>Buy/Sell: Click to transact. Each buy adds stock, each sell reduces.</li>
+                <li>Price Display: Price shown above represents the latest data point.</li>
+                <li>Price Fluctuations: Prices change dynamically.</li>
+                <li>End: Game ends after 30 seconds. Win by meeting profit target.</li>
+              </ul>
+
+            </div>
+          </div>
         )}
         {!gameActive && (
           <button
@@ -189,9 +203,8 @@ function RealTimeGraph() {
             <p className="text-white m-4 font-kalam">
               Real-time Profit/Loss:{" "}
               <span
-                className={`${
-                  realTimeProfitLoss < 0 ? "bg-yellow-600" : "bg-[#10B981]"
-                } rounded-3xl p-2`}
+                className={`${realTimeProfitLoss < 0 ? "bg-yellow-600" : "bg-[#10B981]"
+                  } rounded-3xl p-2`}
               >
                 ${realTimeProfitLoss.toFixed(2)}
               </span>
@@ -206,9 +219,8 @@ function RealTimeGraph() {
             Game Over! <br />
             Real-time Profit/Loss:{" "}
             <span
-              className={`${
-                realTimeProfitLoss < 0 ? "bg-yellow-600" : "bg-green-500"
-              } rounded-3xl py-1 px-2 text-lg`}
+              className={`${realTimeProfitLoss < 0 ? "bg-yellow-600" : "bg-green-500"
+                } rounded-3xl py-1 px-2 text-lg`}
             >
               ${realTimeProfitLoss.toFixed(2)}
             </span>

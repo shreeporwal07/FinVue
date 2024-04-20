@@ -68,9 +68,10 @@ function Portifolio() {
             </span>
           </div>
           <div className="flex justify-center m-2">
-            <RealTimeGraph/>
+            <RealTimeGraph />
           </div>
         </main>
+   
       </div>
     </div>
   );
